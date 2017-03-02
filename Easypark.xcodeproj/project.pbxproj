@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		562C14471E6854A900BA2AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562C14451E6854A900BA2AD7 /* Main.storyboard */; };
+		562C144C1E6854A900BA2AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562C144A1E6854A900BA2AD7 /* LaunchScreen.storyboard */; };
+		562C14571E68556B00BA2AD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C14561E68556B00BA2AD7 /* AppDelegate.swift */; };
+		562C14591E68557A00BA2AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562C14581E68557A00BA2AD7 /* Assets.xcassets */; };
+		99C123FE5AE4498BBDBD0349 /* Pods_Easypark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED083811CB6B3BD8E3FA129 /* Pods_Easypark.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0ED083811CB6B3BD8E3FA129 /* Pods_Easypark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easypark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		562C143E1E6854A900BA2AD7 /* Easypark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Easypark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		562C14461E6854A900BA2AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		562C144B1E6854A900BA2AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		562C144D1E6854A900BA2AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		562C14561E68556B00BA2AD7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		562C14581E68557A00BA2AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8327F080971756E7F1F33A9F /* Pods-Easypark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easypark.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easypark/Pods-Easypark.release.xcconfig"; sourceTree = "<group>"; };
+		C7A81E5852AB56543FB23B15 /* Pods-Easypark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easypark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easypark/Pods-Easypark.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		562C143B1E6854A900BA2AD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99C123FE5AE4498BBDBD0349 /* Pods_Easypark.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D77BC308E0AFDB487079BBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7A81E5852AB56543FB23B15 /* Pods-Easypark.debug.xcconfig */,
+				8327F080971756E7F1F33A9F /* Pods-Easypark.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		562C14351E6854A900BA2AD7 = {
+			isa = PBXGroup;
+			children = (
+				562C14401E6854A900BA2AD7 /* Easypark */,
+				562C143F1E6854A900BA2AD7 /* Products */,
+				2D77BC308E0AFDB487079BBF /* Pods */,
+				63043B3A75D8456403A169A9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		562C143F1E6854A900BA2AD7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				562C143E1E6854A900BA2AD7 /* Easypark.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		562C14401E6854A900BA2AD7 /* Easypark */ = {
+			isa = PBXGroup;
+			children = (
+				562C14451E6854A900BA2AD7 /* Main.storyboard */,
+				562C14541E68553300BA2AD7 /* Sources */,
+				562C14531E68553300BA2AD7 /* Ressources */,
+			);
+			path = Easypark;
+			sourceTree = "<group>";
+		};
+		562C14531E68553300BA2AD7 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				562C14581E68557A00BA2AD7 /* Assets.xcassets */,
+				562C144A1E6854A900BA2AD7 /* LaunchScreen.storyboard */,
+				562C144D1E6854A900BA2AD7 /* Info.plist */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		562C14541E68553300BA2AD7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				562C14551E68553300BA2AD7 /* Main */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		562C14551E68553300BA2AD7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				562C14561E68556B00BA2AD7 /* AppDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		63043B3A75D8456403A169A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0ED083811CB6B3BD8E3FA129 /* Pods_Easypark.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		562C143D1E6854A900BA2AD7 /* Easypark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 562C14501E6854A900BA2AD7 /* Build configuration list for PBXNativeTarget "Easypark" */;
+			buildPhases = (
+				25E27F42279829E76329E868 /* [CP] Check Pods Manifest.lock */,
+				562C143A1E6854A900BA2AD7 /* Sources */,
+				562C143B1E6854A900BA2AD7 /* Frameworks */,
+				562C143C1E6854A900BA2AD7 /* Resources */,
+				649D66E2425F49A41AC4FECF /* [CP] Embed Pods Frameworks */,
+				E69716013E889F8BA7118694 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Easypark;
+			productName = Easypark;
+			productReference = 562C143E1E6854A900BA2AD7 /* Easypark.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		562C14361E6854A900BA2AD7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Sebastien Bastide";
+				TargetAttributes = {
+					562C143D1E6854A900BA2AD7 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8PJ45T947H;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 562C14391E6854A900BA2AD7 /* Build configuration list for PBXProject "Easypark" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 562C14351E6854A900BA2AD7;
+			productRefGroup = 562C143F1E6854A900BA2AD7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				562C143D1E6854A900BA2AD7 /* Easypark */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		562C143C1E6854A900BA2AD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				562C144C1E6854A900BA2AD7 /* LaunchScreen.storyboard in Resources */,
+				562C14591E68557A00BA2AD7 /* Assets.xcassets in Resources */,
+				562C14471E6854A900BA2AD7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25E27F42279829E76329E868 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		649D66E2425F49A41AC4FECF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Easypark/Pods-Easypark-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E69716013E889F8BA7118694 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Easypark/Pods-Easypark-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		562C143A1E6854A900BA2AD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				562C14571E68556B00BA2AD7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		562C14451E6854A900BA2AD7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				562C14461E6854A900BA2AD7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		562C144A1E6854A900BA2AD7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				562C144B1E6854A900BA2AD7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		562C144E1E6854A900BA2AD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		562C144F1E6854A900BA2AD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		562C14511E6854A900BA2AD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7A81E5852AB56543FB23B15 /* Pods-Easypark.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8PJ45T947H;
+				INFOPLIST_FILE = Easypark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.easypark.Easypark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		562C14521E6854A900BA2AD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8327F080971756E7F1F33A9F /* Pods-Easypark.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8PJ45T947H;
+				INFOPLIST_FILE = Easypark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.easypark.Easypark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		562C14391E6854A900BA2AD7 /* Build configuration list for PBXProject "Easypark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				562C144E1E6854A900BA2AD7 /* Debug */,
+				562C144F1E6854A900BA2AD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		562C14501E6854A900BA2AD7 /* Build configuration list for PBXNativeTarget "Easypark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				562C14511E6854A900BA2AD7 /* Debug */,
+				562C14521E6854A900BA2AD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 562C14361E6854A900BA2AD7 /* Project object */;
+}
