@@ -11,8 +11,23 @@
 		562C144C1E6854A900BA2AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562C144A1E6854A900BA2AD7 /* LaunchScreen.storyboard */; };
 		562C14571E68556B00BA2AD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C14561E68556B00BA2AD7 /* AppDelegate.swift */; };
 		562C14591E68557A00BA2AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562C14581E68557A00BA2AD7 /* Assets.xcassets */; };
+		56C1A5761E69BCC100165825 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A5751E69BCC100165825 /* Constants.swift */; };
+		56C1A5791E6A2C3400165825 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A5781E6A2C3400165825 /* JSONManager.swift */; };
 		99C123FE5AE4498BBDBD0349 /* Pods_Easypark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED083811CB6B3BD8E3FA129 /* Pods_Easypark.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		567B8D021E6DAFC600E7A99D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0ED083811CB6B3BD8E3FA129 /* Pods_Easypark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easypark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +37,8 @@
 		562C144D1E6854A900BA2AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		562C14561E68556B00BA2AD7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		562C14581E68557A00BA2AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56C1A5751E69BCC100165825 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		56C1A5781E6A2C3400165825 /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		8327F080971756E7F1F33A9F /* Pods-Easypark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easypark.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easypark/Pods-Easypark.release.xcconfig"; sourceTree = "<group>"; };
 		C7A81E5852AB56543FB23B15 /* Pods-Easypark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easypark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easypark/Pods-Easypark.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				562C14451E6854A900BA2AD7 /* Main.storyboard */,
+				56C1A5751E69BCC100165825 /* Constants.swift */,
+				56C1A5771E6A2BEE00165825 /* Services */,
 				562C14541E68553300BA2AD7 /* Sources */,
 				562C14531E68553300BA2AD7 /* Ressources */,
 			);
@@ -101,6 +120,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		56C1A5771E6A2BEE00165825 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				56C1A5781E6A2C3400165825 /* JSONManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		63043B3A75D8456403A169A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +149,7 @@
 				562C143C1E6854A900BA2AD7 /* Resources */,
 				649D66E2425F49A41AC4FECF /* [CP] Embed Pods Frameworks */,
 				E69716013E889F8BA7118694 /* [CP] Copy Pods Resources */,
+				567B8D021E6DAFC600E7A99D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				562C14571E68556B00BA2AD7 /* AppDelegate.swift in Sources */,
+				56C1A5791E6A2C3400165825 /* JSONManager.swift in Sources */,
+				56C1A5761E69BCC100165825 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
