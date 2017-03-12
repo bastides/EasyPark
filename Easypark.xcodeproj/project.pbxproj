@@ -7,14 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56100AAD1E6E1A9900E830C6 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56100AAC1E6E1A9900E830C6 /* StorageManager.swift */; };
+		562862521E74922A00814FC4 /* ParkingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562862511E74922A00814FC4 /* ParkingsViewController.swift */; };
+		562862561E74928100814FC4 /* ParkingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562862551E74928100814FC4 /* ParkingsDataSource.swift */; };
+		562862591E7492D500814FC4 /* ParkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562862571E7492D500814FC4 /* ParkingTableViewCell.swift */; };
+		5628625A1E7492D500814FC4 /* ParkingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562862581E7492D500814FC4 /* ParkingTableViewCell.xib */; };
 		562C14471E6854A900BA2AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562C14451E6854A900BA2AD7 /* Main.storyboard */; };
 		562C144C1E6854A900BA2AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562C144A1E6854A900BA2AD7 /* LaunchScreen.storyboard */; };
 		562C14571E68556B00BA2AD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C14561E68556B00BA2AD7 /* AppDelegate.swift */; };
 		562C14591E68557A00BA2AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562C14581E68557A00BA2AD7 /* Assets.xcassets */; };
+		56AC03911E6DB2960022128B /* EasyparkModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC03901E6DB2880022128B /* EasyparkModel.framework */; };
+		56AC03921E6DB2960022128B /* EasyparkModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC03901E6DB2880022128B /* EasyparkModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56C1A5761E69BCC100165825 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A5751E69BCC100165825 /* Constants.swift */; };
-		56C1A5791E6A2C3400165825 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A5781E6A2C3400165825 /* JSONManager.swift */; };
+		56C1A5791E6A2C3400165825 /* ParkingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A5781E6A2C3400165825 /* ParkingsService.swift */; };
 		99C123FE5AE4498BBDBD0349 /* Pods_Easypark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED083811CB6B3BD8E3FA129 /* Pods_Easypark.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56AC038F1E6DB2880022128B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56AC038B1E6DB2880022128B /* EasyparkModel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 567B8D181E6DB24B00E7A99D;
+			remoteInfo = EasyparkModel;
+		};
+		56AC03931E6DB2960022128B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56AC038B1E6DB2880022128B /* EasyparkModel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 567B8D171E6DB24B00E7A99D;
+			remoteInfo = EasyparkModel;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		567B8D021E6DAFC600E7A99D /* Embed Frameworks */ = {
@@ -23,6 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				56AC03921E6DB2960022128B /* EasyparkModel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,14 +56,20 @@
 
 /* Begin PBXFileReference section */
 		0ED083811CB6B3BD8E3FA129 /* Pods_Easypark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easypark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56100AAC1E6E1A9900E830C6 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		562862511E74922A00814FC4 /* ParkingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingsViewController.swift; sourceTree = "<group>"; };
+		562862551E74928100814FC4 /* ParkingsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingsDataSource.swift; sourceTree = "<group>"; };
+		562862571E7492D500814FC4 /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
+		562862581E7492D500814FC4 /* ParkingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkingTableViewCell.xib; sourceTree = "<group>"; };
 		562C143E1E6854A900BA2AD7 /* Easypark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Easypark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		562C14461E6854A900BA2AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		562C144B1E6854A900BA2AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		562C144D1E6854A900BA2AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		562C14561E68556B00BA2AD7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		562C14581E68557A00BA2AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56AC038B1E6DB2880022128B /* EasyparkModel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EasyparkModel.xcodeproj; path = EasyparkModel/EasyparkModel.xcodeproj; sourceTree = "<group>"; };
 		56C1A5751E69BCC100165825 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		56C1A5781E6A2C3400165825 /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		56C1A5781E6A2C3400165825 /* ParkingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingsService.swift; sourceTree = "<group>"; };
 		8327F080971756E7F1F33A9F /* Pods-Easypark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easypark.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easypark/Pods-Easypark.release.xcconfig"; sourceTree = "<group>"; };
 		C7A81E5852AB56543FB23B15 /* Pods-Easypark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easypark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easypark/Pods-Easypark.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56AC03911E6DB2960022128B /* EasyparkModel.framework in Frameworks */,
 				99C123FE5AE4498BBDBD0349 /* Pods_Easypark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +94,25 @@
 				8327F080971756E7F1F33A9F /* Pods-Easypark.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5628624E1E74916E00814FC4 /* ParkingList */ = {
+			isa = PBXGroup;
+			children = (
+				5628624F1E74916E00814FC4 /* Cell */,
+				562862511E74922A00814FC4 /* ParkingsViewController.swift */,
+				562862551E74928100814FC4 /* ParkingsDataSource.swift */,
+			);
+			path = ParkingList;
+			sourceTree = "<group>";
+		};
+		5628624F1E74916E00814FC4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				562862571E7492D500814FC4 /* ParkingTableViewCell.swift */,
+				562862581E7492D500814FC4 /* ParkingTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		562C14351E6854A900BA2AD7 = {
@@ -108,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				562C14551E68553300BA2AD7 /* Main */,
+				5628624E1E74916E00814FC4 /* ParkingList */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -120,10 +172,19 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		56AC038C1E6DB2880022128B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56AC03901E6DB2880022128B /* EasyparkModel.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		56C1A5771E6A2BEE00165825 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				56C1A5781E6A2C3400165825 /* JSONManager.swift */,
+				56C1A5781E6A2C3400165825 /* ParkingsService.swift */,
+				56100AAC1E6E1A9900E830C6 /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -131,6 +192,7 @@
 		63043B3A75D8456403A169A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56AC038B1E6DB2880022128B /* EasyparkModel.xcodeproj */,
 				0ED083811CB6B3BD8E3FA129 /* Pods_Easypark.framework */,
 			);
 			name = Frameworks;
@@ -154,6 +216,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				56AC03941E6DB2960022128B /* PBXTargetDependency */,
 			);
 			name = Easypark;
 			productName = Easypark;
@@ -188,6 +251,12 @@
 			mainGroup = 562C14351E6854A900BA2AD7;
 			productRefGroup = 562C143F1E6854A900BA2AD7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 56AC038C1E6DB2880022128B /* Products */;
+					ProjectRef = 56AC038B1E6DB2880022128B /* EasyparkModel.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				562C143D1E6854A900BA2AD7 /* Easypark */,
@@ -195,11 +264,22 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		56AC03901E6DB2880022128B /* EasyparkModel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EasyparkModel.framework;
+			remoteRef = 56AC038F1E6DB2880022128B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		562C143C1E6854A900BA2AD7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5628625A1E7492D500814FC4 /* ParkingTableViewCell.xib in Resources */,
 				562C144C1E6854A900BA2AD7 /* LaunchScreen.storyboard in Resources */,
 				562C14591E68557A00BA2AD7 /* Assets.xcassets in Resources */,
 				562C14471E6854A900BA2AD7 /* Main.storyboard in Resources */,
@@ -262,12 +342,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				562C14571E68556B00BA2AD7 /* AppDelegate.swift in Sources */,
-				56C1A5791E6A2C3400165825 /* JSONManager.swift in Sources */,
+				562862561E74928100814FC4 /* ParkingsDataSource.swift in Sources */,
+				56C1A5791E6A2C3400165825 /* ParkingsService.swift in Sources */,
 				56C1A5761E69BCC100165825 /* Constants.swift in Sources */,
+				562862591E7492D500814FC4 /* ParkingTableViewCell.swift in Sources */,
+				562862521E74922A00814FC4 /* ParkingsViewController.swift in Sources */,
+				56100AAD1E6E1A9900E830C6 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56AC03941E6DB2960022128B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EasyparkModel;
+			targetProxy = 56AC03931E6DB2960022128B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		562C14451E6854A900BA2AD7 /* Main.storyboard */ = {

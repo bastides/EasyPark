@@ -1,6 +1,26 @@
 import Foundation
+import CoreData
 
 @objc(Parking)
 open class Parking: _Parking {
-	// Custom logic goes here.
+	
+    public class func parkingForName(name: String, moc: NSManagedObjectContext) -> Parking? {
+        var currentParking: Parking?
+        if let parkingArray = Parking.fetchParkingForName(managedObjectContext: moc, name: name) as NSArray? {
+            if parkingArray.count > 0 {
+                currentParking = parkingArray[0] as? Parking
+            }
+        }
+        return currentParking
+    }
+    
+    public class func allParkings(moc: NSManagedObjectContext) -> [Parking]? {
+        var parkingList: [Parking]?
+        if let parkingArray = Parking.fetchAllParkings(managedObjectContext: moc) as NSArray? {
+            if parkingArray.count > 0 {
+                parkingList = parkingArray as? [Parking]
+            }
+        }
+        return parkingList
+    }
 }

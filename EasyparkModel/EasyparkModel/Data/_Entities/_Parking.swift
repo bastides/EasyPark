@@ -75,5 +75,75 @@ open class _Parking: NSManagedObject {
 
     // MARK: - Relationships
 
+    public class func parkingForNameRequest(managedObjectContext: NSManagedObjectContext!, name: String) -> NSFetchRequest<NSFetchRequestResult> {
+
+        let model = managedObjectContext.persistentStoreCoordinator!.managedObjectModel
+        let substitutionVariables:[String:AnyObject] = [
+        "name": name as AnyObject,
+        ]
+
+        let fetchRequest = model.fetchRequestFromTemplate(withName: "parkingForName", substitutionVariables: substitutionVariables)!
+
+        return fetchRequest
+    }
+
+    class func fetchParkingForName(managedObjectContext: NSManagedObjectContext, name: String) -> [Any]? {
+        return self.fetchParkingForName(managedObjectContext: managedObjectContext, name: name, error: nil)
+    }
+
+    class func fetchParkingForName(managedObjectContext: NSManagedObjectContext, name: String, error outError: NSErrorPointer) -> [Any]? {
+        guard let psc = managedObjectContext.persistentStoreCoordinator else { return nil }
+        let model = psc.managedObjectModel
+        let substitutionVariables : [String : Any] = [
+            "name": name,
+]
+
+        guard let fetchRequest = model.fetchRequestFromTemplate(withName: "parkingForName", substitutionVariables: substitutionVariables) else {
+        	assert(false, "Can't find fetch request named \"parkingForName\".")
+		return nil
+	}
+        var results = Array<Any>()
+        do {
+             results = try managedObjectContext.fetch(fetchRequest)
+        } catch {
+          print("Error executing fetch request: \(error)")
+        }
+
+        return results
+    }
+
+    public class func allParkingsRequest(managedObjectContext: NSManagedObjectContext!) -> NSFetchRequest<NSFetchRequestResult> {
+
+        let model = managedObjectContext.persistentStoreCoordinator!.managedObjectModel
+        let substitutionVariables:[String:AnyObject] = [:]
+
+        let fetchRequest = model.fetchRequestFromTemplate(withName: "allParkings", substitutionVariables: substitutionVariables)!
+
+        return fetchRequest
+    }
+
+    class func fetchAllParkings(managedObjectContext: NSManagedObjectContext) -> [Any]? {
+        return self.fetchAllParkings(managedObjectContext: managedObjectContext, error: nil)
+    }
+
+    class func fetchAllParkings(managedObjectContext: NSManagedObjectContext, error outError: NSErrorPointer) -> [Any]? {
+        guard let psc = managedObjectContext.persistentStoreCoordinator else { return nil }
+        let model = psc.managedObjectModel
+        let substitutionVariables : [String : Any] = [:]
+
+        guard let fetchRequest = model.fetchRequestFromTemplate(withName: "allParkings", substitutionVariables: substitutionVariables) else {
+        	assert(false, "Can't find fetch request named \"allParkings\".")
+		return nil
+	}
+        var results = Array<Any>()
+        do {
+             results = try managedObjectContext.fetch(fetchRequest)
+        } catch {
+          print("Error executing fetch request: \(error)")
+        }
+
+        return results
+    }
+
 }
 
