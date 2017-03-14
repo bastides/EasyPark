@@ -5,7 +5,7 @@
 //  Created by Sebastien Bastide on 11/03/2017.
 //  Copyright © 2017 Sebastien Bastide. All rights reserved.
 //
-
+	
 import Foundation
 import UIKit
 import CoreData
@@ -83,7 +83,7 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell: UITableViewCell?
         let parkingAtIndexPath = self.parkingAtIndexPath(indexPath: indexPath as NSIndexPath)
-        let parkingCell = tableView.dequeueReusableCell(withIdentifier: "ParkingCell") as! ParkingTableViewCell
+        let parkingCell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewInfos.CELL_IDENTIFIER) as! ParkingTableViewCell
         parkingCell.setNameLabelWith(name: parkingAtIndexPath.name ?? "No name")
         parkingCell.setAvailableLabelWith(availablePlaces: parkingAtIndexPath.available ?? "XX")
         tableViewCell = parkingCell

@@ -26,4 +26,18 @@ struct Constants {
                                                     ApiInfos.API_SECRET_KEY +
                                                     ApiInfos.API_JSON_OUTPUT_FORMAT
     
+    
+    // MARK: - TableView
+    
+    struct TableViewInfos {
+        static let NIB_NAME = "ParkingTableViewCell"
+        static let CELL_IDENTIFIER = "ParkingCell"
+    }
+    
+    
+    // MARK: - RefreshControl
+    
+    struct RefreshControlInfos {
+        static let ATTRIBUTED_TITLE = "Fetching parkings data"
+    }
 }

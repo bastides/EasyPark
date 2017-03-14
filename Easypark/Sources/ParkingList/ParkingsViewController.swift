@@ -26,10 +26,10 @@ class ParkingsViewController: UIViewController {
         super.viewDidLoad()
         self.parkingsDataSource = ParkingsDataSource(tableView: self.parkingsTableView)
         self.parkingsTableView.dataSource = parkingsDataSource
-        self.parkingsTableView.register(UINib(nibName: "ParkingTableViewCell", bundle: nil), forCellReuseIdentifier: "ParkingCell")
+        self.parkingsTableView.register(UINib(nibName: Constants.TableViewInfos.NIB_NAME, bundle: nil), forCellReuseIdentifier: Constants.TableViewInfos.CELL_IDENTIFIER)
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Fetching parkings data")
+        self.refreshControl.attributedTitle = NSAttributedString(string: Constants.RefreshControlInfos.ATTRIBUTED_TITLE)
         self.refreshControl.addTarget(self, action: #selector(ParkingsViewController.handleRefresh), for: .valueChanged)
         
         if #available(iOS 10.0, *) {

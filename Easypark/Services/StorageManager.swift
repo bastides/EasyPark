@@ -36,31 +36,26 @@ class StorageManager: NSObject {
                     print("Erreur tempMoc")
                 }
 
-                if let parkingsDictionnary = JsonParkingsData.dictionary {
-                    if let opendataDictionary = parkingsDictionnary["opendata"]?.dictionary {
-                        if let answerDictionary = opendataDictionary["answer"]?.dictionary {
-                            if let dataDictionary = answerDictionary["data"]?.dictionary {
-                                if let groupesParkingDictionary = dataDictionary["Groupes_Parking"]?.dictionary {
-                                    if let groupeParkingArray = groupesParkingDictionary["Groupe_Parking"]?.array {
-                                        for parking in groupeParkingArray {
-                                            var currentParking = Parking.parkingForName(name: parking["Grp_nom"].stringValue, moc: managedObjectContext)
-                                            if currentParking == nil {
-                                                currentParking = Parking(managedObjectContext: tempMoc!)
-                                            }
-                                            currentParking?.available = parking["Grp_disponible"].stringValue
-                                            currentParking?.exploitation = parking["Grp_exploitation"].stringValue
-                                            currentParking?.full = parking["Grp_complet"].stringValue
-                                            currentParking?.horodatage = parking["Grp_horodatage"].stringValue
-                                            currentParking?.identifier = parking["Grp_identifiant"].stringValue
-                                            currentParking?.name = parking["Grp_nom"].stringValue
-                                            currentParking?.pri_aut = parking["Grp_pri_aut"].stringValue
-                                            currentParking?.status = parking["Grp_statut"].stringValue
-                                      }
-                                    }
-                                }
-                            }
-                        }
+                guard let groupesParkingDictionary = JsonParkingsData["opendata"]["answer"]["data"]["Groupes_Parking"].dictionary else {
+                    return
+                }
+                guard let groupeParkingArray = groupesParkingDictionary["Groupe_Parking"]?.array else {
+                    return
+                }
+                
+                for parking in groupeParkingArray {
+                    var currentParking = Parking.parkingForName(name: parking["Grp_nom"].stringValue, moc: managedObjectContext)
+                    if currentParking == nil {
+                        currentParking = Parking(managedObjectContext: tempMoc!)
                     }
+                    currentParking?.available = parking["Grp_disponible"].stringValue
+                    currentParking?.exploitation = parking["Grp_exploitation"].stringValue
+                    currentParking?.full = parking["Grp_complet"].stringValue
+                    currentParking?.horodatage = parking["Grp_horodatage"].stringValue
+                    currentParking?.identifier = parking["Grp_identifiant"].stringValue
+                    currentParking?.name = parking["Grp_nom"].stringValue
+                    currentParking?.pri_aut = parking["Grp_pri_aut"].stringValue
+                    currentParking?.status = parking["Grp_statut"].stringValue
                 }
                 
                 defer {
