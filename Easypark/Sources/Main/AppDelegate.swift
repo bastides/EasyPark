@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import EasyparkModel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-            
-        JSONManager.sharedInstance.getJsonDisponibiliteParkings(url: Constants.getDisponibiliteParkingsPublics) { response in
-            print(response)
-        }
         
+        guard let moc = CoreDataStack.sharedInstance.managedObjectContext else {
+            print("ManagedObjectContext instantiation failed in ContextManager")
+            return true
+        }
+        StorageManager.sharedInstance.persistParking(moc: moc)
         return true
     }
 
@@ -43,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        CoreDataStack.sharedInstance.saveContext()
     }
 
 

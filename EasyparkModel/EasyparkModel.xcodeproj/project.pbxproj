@@ -6,14 +6,42 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		56AC039F1E6DB4BF0022128B /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 56AC03A01E6DB4BF0022128B /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				56AC03A31E6DB4C50022128B /* Mogenerator Script */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		567B8D1D1E6DB24B00E7A99D /* EasyparkModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 567B8D1B1E6DB24B00E7A99D /* EasyparkModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56AC03991E6DB2DD0022128B /* human.swift.motemplate in Resources */ = {isa = PBXBuildFile; fileRef = 56AC03961E6DB2DD0022128B /* human.swift.motemplate */; };
+		56AC039A1E6DB2DD0022128B /* machine.swift.motemplate in Resources */ = {isa = PBXBuildFile; fileRef = 56AC03971E6DB2DD0022128B /* machine.swift.motemplate */; };
+		56AC039B1E6DB2DD0022128B /* mogenerator in Resources */ = {isa = PBXBuildFile; fileRef = 56AC03981E6DB2DD0022128B /* mogenerator */; };
+		56AC039E1E6DB3BB0022128B /* Easypark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56AC039C1E6DB3BB0022128B /* Easypark.xcdatamodeld */; };
+		56AC03AA1E6DB5740022128B /* _Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC03A71E6DB5740022128B /* _Parking.swift */; };
+		56AC03AB1E6DB5740022128B /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC03A91E6DB5740022128B /* Parking.swift */; };
+		56AC03AD1E6DB5F80022128B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC03AC1E6DB5F80022128B /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		567B8D181E6DB24B00E7A99D /* EasyparkModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyparkModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		567B8D1B1E6DB24B00E7A99D /* EasyparkModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyparkModel.h; sourceTree = "<group>"; };
 		567B8D1C1E6DB24B00E7A99D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56AC03961E6DB2DD0022128B /* human.swift.motemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = human.swift.motemplate; sourceTree = "<group>"; };
+		56AC03971E6DB2DD0022128B /* machine.swift.motemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = machine.swift.motemplate; sourceTree = "<group>"; };
+		56AC03981E6DB2DD0022128B /* mogenerator */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mogenerator; sourceTree = "<group>"; };
+		56AC039D1E6DB3BB0022128B /* Easypark.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Easypark.xcdatamodel; sourceTree = "<group>"; };
+		56AC03A71E6DB5740022128B /* _Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Parking.swift; sourceTree = "<group>"; };
+		56AC03A91E6DB5740022128B /* Parking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parking.swift; sourceTree = "<group>"; };
+		56AC03AC1E6DB5F80022128B /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +74,49 @@
 		567B8D1A1E6DB24B00E7A99D /* EasyparkModel */ = {
 			isa = PBXGroup;
 			children = (
+				56AC03AC1E6DB5F80022128B /* CoreDataStack.swift */,
 				567B8D1B1E6DB24B00E7A99D /* EasyparkModel.h */,
 				567B8D1C1E6DB24B00E7A99D /* Info.plist */,
+				56AC039C1E6DB3BB0022128B /* Easypark.xcdatamodeld */,
+				56AC03A51E6DB5740022128B /* Data */,
+				56AC03951E6DB2DD0022128B /* scripts */,
 			);
 			path = EasyparkModel;
+			sourceTree = "<group>";
+		};
+		56AC03951E6DB2DD0022128B /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				56AC03961E6DB2DD0022128B /* human.swift.motemplate */,
+				56AC03971E6DB2DD0022128B /* machine.swift.motemplate */,
+				56AC03981E6DB2DD0022128B /* mogenerator */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
+		56AC03A51E6DB5740022128B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				56AC03A61E6DB5740022128B /* _Entities */,
+				56AC03A81E6DB5740022128B /* Entities */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		56AC03A61E6DB5740022128B /* _Entities */ = {
+			isa = PBXGroup;
+			children = (
+				56AC03A71E6DB5740022128B /* _Parking.swift */,
+			);
+			path = _Entities;
+			sourceTree = "<group>";
+		};
+		56AC03A81E6DB5740022128B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				56AC03A91E6DB5740022128B /* Parking.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +165,11 @@
 						DevelopmentTeam = 8PJ45T947H;
 						ProvisioningStyle = Automatic;
 					};
+					56AC039F1E6DB4BF0022128B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8PJ45T947H;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 567B8D121E6DB24B00E7A99D /* Build configuration list for PBXProject "EasyparkModel" */;
@@ -113,6 +185,7 @@
 			projectRoot = "";
 			targets = (
 				567B8D171E6DB24B00E7A99D /* EasyparkModel */,
+				56AC039F1E6DB4BF0022128B /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -122,16 +195,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56AC039A1E6DB2DD0022128B /* machine.swift.motemplate in Resources */,
+				56AC03991E6DB2DD0022128B /* human.swift.motemplate in Resources */,
+				56AC039B1E6DB2DD0022128B /* mogenerator in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		56AC03A31E6DB4C50022128B /* Mogenerator Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Mogenerator Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./EasyparkModel/scripts/mogenerator --v2 --swift --model \"EasyparkModel/Easypark.xcdatamodeld\" --template-path \"EasyparkModel/scripts\" --machine-dir \"EasyparkModel/Data/_Entities\" --human-dir \"EasyparkModel/Data/Entities\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		567B8D131E6DB24B00E7A99D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56AC03AA1E6DB5740022128B /* _Parking.swift in Sources */,
+				56AC03AB1E6DB5740022128B /* Parking.swift in Sources */,
+				56AC039E1E6DB3BB0022128B /* Easypark.xcdatamodeld in Sources */,
+				56AC03AD1E6DB5F80022128B /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +372,22 @@
 			};
 			name = Release;
 		};
+		56AC03A11E6DB4BF0022128B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8PJ45T947H;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		56AC03A21E6DB4BF0022128B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8PJ45T947H;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -294,8 +407,30 @@
 				567B8D221E6DB24B00E7A99D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56AC03A01E6DB4BF0022128B /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56AC03A11E6DB4BF0022128B /* Debug */,
+				56AC03A21E6DB4BF0022128B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		56AC039C1E6DB3BB0022128B /* Easypark.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				56AC039D1E6DB3BB0022128B /* Easypark.xcdatamodel */,
+			);
+			currentVersion = 56AC039D1E6DB3BB0022128B /* Easypark.xcdatamodel */;
+			path = Easypark.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 567B8D0F1E6DB24B00E7A99D /* Project object */;
 }

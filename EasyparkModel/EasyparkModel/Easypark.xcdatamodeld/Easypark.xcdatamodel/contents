@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Parking" representedClassName="Parking" syncable="YES">
+        <attribute name="available" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exploitation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="full" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="horodatage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pri_aut" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <fetchRequest name="allParkings" entity="Parking"/>
+    <fetchRequest name="parkingForName" entity="Parking" predicateString="name == $name"/>
+    <elements>
+        <element name="Parking" positionX="-63" positionY="-18" width="128" height="165"/>
+    </elements>
 </model>
