@@ -1,18 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Equipment" representedClassName="Equipment" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_obj" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone_number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postal_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="web" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parking" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Parking" inverseName="equipment" inverseEntity="Parking" syncable="YES"/>
+    </entity>
     <entity name="Parking" representedClassName="Parking" syncable="YES">
         <attribute name="available" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="exploitation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="full" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="horodatage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_obj" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pri_aut" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="equipment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Equipment" inverseName="parking" inverseEntity="Equipment" syncable="YES"/>
+        <relationship name="schedules" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Schedules" inverseName="parking" inverseEntity="Schedules" syncable="YES"/>
     </entity>
+    <entity name="Schedules" representedClassName="Schedules" syncable="YES">
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="end_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_obj" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="strat_time" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parking" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Parking" inverseName="schedules" inverseEntity="Parking" syncable="YES"/>
+    </entity>
+    <fetchRequest name="allEquipments" entity="Equipment"/>
     <fetchRequest name="allParkings" entity="Parking"/>
-    <fetchRequest name="parkingForName" entity="Parking" predicateString="name == $name"/>
+    <fetchRequest name="allSchedules" entity="Schedules"/>
+    <fetchRequest name="equipmentForIdObject" entity="Equipment" predicateString="id_obj == $id_obj"/>
+    <fetchRequest name="parkingForIdObj" entity="Parking" predicateString="id_obj == $id_obj"/>
+    <fetchRequest name="schedulesForIdObjAndDay" entity="Schedules" predicateString="id_obj == $id_obj AND day == $day"/>
     <elements>
-        <element name="Parking" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Equipment" positionX="-209" positionY="-45" width="128" height="195"/>
+        <element name="Parking" positionX="-423" positionY="60" width="128" height="210"/>
+        <element name="Schedules" positionX="-36" positionY="68" width="128" height="135"/>
     </elements>
 </model>

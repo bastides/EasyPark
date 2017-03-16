@@ -18,13 +18,13 @@ class ParkingsService: NSObject {
     
     // MARK: - Get parking data in JSON
     
-    func getJsonDisponibiliteParkings(url: String, callback: @escaping (_ data: JSON) -> Void) {
-        self.getDisponibiliteParkings(url: url) { data in
+    func getJsonData(url: String, callback: @escaping (_ data: JSON) -> Void) {
+        self.gettingJsonData(url: url) { data in
             callback(data)
         }
     }
     
-    private func getDisponibiliteParkings(url: String, callback: @escaping (_ data: JSON) -> Void) {
+    private func gettingJsonData(url: String, callback: @escaping (_ data: JSON) -> Void) {
         Alamofire.request(url, method: .get).responseJSON { response in
             guard let responseValue = response.result.value else { return }
             let jsonParsed = JSON(responseValue)

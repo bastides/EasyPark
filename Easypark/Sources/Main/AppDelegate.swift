@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("ManagedObjectContext instantiation failed in ContextManager")
             return true
         }
+
         StorageManager.sharedInstance.persistParking(moc: moc)
+        StorageManager.sharedInstance.persistSchedules(moc: moc)
+        StorageManager.sharedInstance.persistEquipment(moc: moc)
+        
         return true
     }
 
