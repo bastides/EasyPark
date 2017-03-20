@@ -83,6 +83,23 @@ class StorageManager: NSObject {
 //        return allParkings
 //    }
     
+    public func fetchAllParkingsIdObj(managedObjectContext: NSManagedObjectContext) -> [String] {
+        return self.fetchingAllParkingsIdObj(managedObjectContext: managedObjectContext)
+    }
+    
+    private func fetchingAllParkingsIdObj(managedObjectContext: NSManagedObjectContext) -> [String] {
+        var idObjArray = [String]()
+        guard let parkingsList = Parking.allParkings(moc: managedObjectContext) else {
+            print("No Parking")
+            return idObjArray
+        }
+        for parking in parkingsList {
+            idObjArray.append(parking.id_obj ?? "No IdObj")
+        }
+        
+        return idObjArray
+    }
+    
     
     // MARK: - Schedules
     

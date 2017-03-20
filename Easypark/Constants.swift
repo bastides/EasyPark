@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     
@@ -27,17 +28,17 @@ struct Constants {
     static let PUBLIC_EQUIPMENTS_URL_REQUEST = ApiInfos.API_BASE_URL + ApiInfos.API_PUBLIC_EQUIPMENTS + ApiInfos.API_JSON_OUTPUT_FORMAT
     
     static let PARKING_URL_REQUEST =    ApiInfos.API_BASE_URL +
-        ApiInfos.API_PARK_SERVICE +
-        ApiInfos.API_VERSION +
-        ApiInfos.API_SECRET_KEY +
-        ApiInfos.API_JSON_OUTPUT_FORMAT
+                                        ApiInfos.API_PARK_SERVICE +
+                                        ApiInfos.API_VERSION +
+                                        ApiInfos.API_SECRET_KEY +
+                                        ApiInfos.API_JSON_OUTPUT_FORMAT
     
     
     // MARK: - TableView
     
     struct TableViewInfos {
-        static let NIB_NAME = "ParkingTableViewCell"
-        static let CELL_IDENTIFIER = "ParkingCell"
+        static let NIB_NAME         = "ParkingTableViewCell"
+        static let CELL_IDENTIFIER  = "ParkingCell"
     }
     
     
@@ -45,5 +46,33 @@ struct Constants {
     
     struct RefreshControlInfos {
         static let ATTRIBUTED_TITLE = "Fetching parkings data"
+    }
+    
+    
+    // MARK: - Map
+    
+    struct MapInfos {
+        static let regionRadius     = 1300
+        static let nantesLatutide   = 47.2172500
+        static let nantesLongitude  = -1.5533600
+    }
+    
+    
+    // MARK: - Images
+    
+    struct Images {
+        static let parkingEmpty         = UIImage(named: "Parking-empty-48")
+        static let parkingAlmostFull    = UIImage(named: "Parking-almost-full-48")
+        static let parkingFull          = UIImage(named: "Parking-full-48")
+    }
+    
+    
+    // MARK: - ColorPalette
+    
+    struct ColorPalette {
+        static let pinColorRed      = UIColor(red: 217.0/255.0, green: 95.0/255.0, blue: 74.0/255.0, alpha: 1.0)
+        static let pinColorOrange   = UIColor(red: 221.0/255.0, green: 157.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        static let pinColorGreen    = UIColor(red: 104.0/255.0, green: 193.0/255.0, blue: 62.0/255.0, alpha: 1.0)
+        static let pinColorWhite    = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
     }
 }

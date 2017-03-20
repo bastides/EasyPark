@@ -13,15 +13,14 @@ open class Parking: _Parking {
         }
         return currentParking
     }   
-
     
-//    public class func allParkings(moc: NSManagedObjectContext) -> [Parking]? {
-//        var parkingList: [Parking]?
-//        if let parkingArray = Parking.fetchAllParkings(managedObjectContext: moc) as NSArray? {
-//            if parkingArray.count > 0 {
-//                parkingList = parkingArray as? [Parking]
-//            }
-//        }
-//        return parkingList
-//    }
+    public class func allParkings(moc: NSManagedObjectContext) -> [Parking]? {
+        var parkingList: [Parking]?
+        if let parkingArray = Parking.fetchAllParkings(managedObjectContext: moc) as NSArray? {
+            if parkingArray.count > 0 {
+                parkingList = parkingArray as? [Parking]
+            }
+        }
+        return parkingList
+    }
 }
