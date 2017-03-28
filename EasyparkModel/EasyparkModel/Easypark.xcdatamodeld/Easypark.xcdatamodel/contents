@@ -38,6 +38,7 @@
     <fetchRequest name="allSchedules" entity="Schedules"/>
     <fetchRequest name="equipmentForIdObject" entity="Equipment" predicateString="id_obj == $id_obj"/>
     <fetchRequest name="parkingForIdObj" entity="Parking" predicateString="id_obj == $id_obj"/>
+    <fetchRequest name="schedulesForIdObj" entity="Schedules" predicateString="id_obj == $id_obj"/>
     <fetchRequest name="schedulesForIdObjAndDay" entity="Schedules" predicateString="id_obj == $id_obj AND day == $day"/>
     <elements>
         <element name="Equipment" positionX="-209" positionY="-45" width="128" height="195"/>

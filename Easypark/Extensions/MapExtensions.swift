@@ -34,5 +34,11 @@ extension ParkingMapViewController: MKMapViewDelegate {
         let location = view.annotation as! ParkingAnnotation
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
         location.mapItem().openInMaps(launchOptions: launchOptions)
+        
+        print("coucou")
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("didselect")
     }
 }

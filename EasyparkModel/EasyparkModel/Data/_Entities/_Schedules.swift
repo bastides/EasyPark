@@ -70,6 +70,43 @@ open class _Schedules: NSManagedObject {
     @NSManaged open
     var parking: Parking?
 
+    public class func schedulesForIdObjRequest(managedObjectContext: NSManagedObjectContext!, id_obj: String) -> NSFetchRequest<NSFetchRequestResult> {
+
+        let model = managedObjectContext.persistentStoreCoordinator!.managedObjectModel
+        let substitutionVariables:[String:AnyObject] = [
+        "id_obj": id_obj as AnyObject,
+        ]
+
+        let fetchRequest = model.fetchRequestFromTemplate(withName: "schedulesForIdObj", substitutionVariables: substitutionVariables)!
+
+        return fetchRequest
+    }
+
+    class func fetchSchedulesForIdObj(managedObjectContext: NSManagedObjectContext, id_obj: String) -> [Any]? {
+        return self.fetchSchedulesForIdObj(managedObjectContext: managedObjectContext, id_obj: id_obj, error: nil)
+    }
+
+    class func fetchSchedulesForIdObj(managedObjectContext: NSManagedObjectContext, id_obj: String, error outError: NSErrorPointer) -> [Any]? {
+        guard let psc = managedObjectContext.persistentStoreCoordinator else { return nil }
+        let model = psc.managedObjectModel
+        let substitutionVariables : [String : Any] = [
+            "id_obj": id_obj,
+]
+
+        guard let fetchRequest = model.fetchRequestFromTemplate(withName: "schedulesForIdObj", substitutionVariables: substitutionVariables) else {
+        	assert(false, "Can't find fetch request named \"schedulesForIdObj\".")
+		return nil
+	}
+        var results = Array<Any>()
+        do {
+             results = try managedObjectContext.fetch(fetchRequest)
+        } catch {
+          print("Error executing fetch request: \(error)")
+        }
+
+        return results
+    }
+
     public class func allSchedulesRequest(managedObjectContext: NSManagedObjectContext!) -> NSFetchRequest<NSFetchRequestResult> {
 
         let model = managedObjectContext.persistentStoreCoordinator!.managedObjectModel

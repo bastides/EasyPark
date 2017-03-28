@@ -20,8 +20,13 @@ class ParkingTableViewCell: UITableViewCell {
     
     @IBOutlet var availablePlacesLabel: UILabel!
     
+    @IBOutlet weak var openStatusLabel: UILabel!
+    
     private let placeTitle = "Places"
     
+    private let parkingOpen = "Open"
+    
+    private let parkingClosed = "Closed"
     
     // MARK: - View
     
@@ -63,5 +68,18 @@ class ParkingTableViewCell: UITableViewCell {
     
     internal func setAvailableLabelWith(availablePlaces: String) {
         self.availablePlacesLabel.text = availablePlaces
+    }
+    
+    internal func setOpenStatusLabelWith(isOpen: Bool?) {
+        switch isOpen {
+        case true?:
+            self.openStatusLabel.text = parkingOpen
+            self.openStatusLabel.textColor = Constants.ColorPalette.pinColorGreen
+        case false?:
+            self.openStatusLabel.text = parkingClosed
+            self.openStatusLabel.textColor = Constants.ColorPalette.pinColorRed
+        default:
+            self.openStatusLabel.text = ""
+        }
     }
 }

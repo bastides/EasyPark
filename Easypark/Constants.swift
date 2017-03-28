@@ -39,6 +39,7 @@ struct Constants {
     struct TableViewInfos {
         static let NIB_NAME         = "ParkingTableViewCell"
         static let CELL_IDENTIFIER  = "ParkingCell"
+        static let SEGUE_IDENTIFIER = "showParkingInfos"
     }
     
     

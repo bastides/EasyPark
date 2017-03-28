@@ -21,10 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
         
+        StorageManager.sharedInstance.persistSchedules(moc: moc) { }
+        StorageManager.sharedInstance.persistEquipment(moc: moc) { }
         StorageManager.sharedInstance.persistParking(moc: moc)
-        StorageManager.sharedInstance.persistSchedules(moc: moc)
-        StorageManager.sharedInstance.persistEquipment(moc: moc)
-        
+
         return true
     }
 

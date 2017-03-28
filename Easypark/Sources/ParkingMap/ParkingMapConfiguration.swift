@@ -20,8 +20,6 @@ class ParkingMapConfiguration: NSObject {
     
     var parkingAnnotations = [ParkingAnnotation]()
     
-    let parkingsIdObjectArray = StorageManager.sharedInstance.fetchAllParkingsIdObj(managedObjectContext: CoreDataStack.sharedInstance.managedObjectContext!)
-    
     internal init(mapView: MKMapView) {
         self.mapView = mapView
         super.init()
@@ -37,14 +35,14 @@ class ParkingMapConfiguration: NSObject {
         initializationData()
         mapView.addAnnotations(parkingAnnotations)
     }
-
+    
     func initializationData() {
-        for position in 0..<parkingsIdObjectArray.count {
-            let equipment = Equipment.equipmentForIdObj(idObject: parkingsIdObjectArray[position], moc: CoreDataStack.sharedInstance.managedObjectContext!)
-            if equipment != nil {
-                guard let parkingAnnotation = ParkingAnnotation.fromEquipment(equipment: equipment!) else {
-                    return
-                }
+        guard let moc = CoreDataStack.sharedInstance.managedObjectContext else { return }
+        guard let parkingArray = Parking.allParkings(moc: moc) else { return }
+        for parking in parkingArray {
+            if parking.equipment != nil {
+                guard let equipment = parking.equipment else { return }
+                guard let parkingAnnotation = ParkingAnnotation.fromEquipment(equipment: equipment) else { return }
                 parkingAnnotations.append(parkingAnnotation)
             }
         }

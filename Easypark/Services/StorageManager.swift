@@ -40,8 +40,9 @@ class StorageManager: NSObject {
                 guard let groupeParkingArray = groupesParkingDictionary["Groupe_Parking"]?.array else {
                     return
                 }
+                        
                 for parking in groupeParkingArray {
-                    var currentParking = Parking.parkingForIdObj(idObject: parking["IdObj"].stringValue, moc: managedObjectContext)
+                    var currentParking = Parking.parkingForIdObj(idObject: parking["IdObj"].stringValue, moc: tempMoc!)
                     if currentParking == nil {
                         currentParking = Parking(managedObjectContext: tempMoc!)
                     }
@@ -54,6 +55,26 @@ class StorageManager: NSObject {
                     currentParking?.name = parking["Grp_nom"].stringValue
                     currentParking?.pri_aut = parking["Grp_pri_aut"].stringValue
                     currentParking?.status = parking["Grp_statut"].stringValue
+                            
+                    guard let equipmentsArray = Equipment.allEquipments(moc: tempMoc!) else { return }
+                    for equipment in equipmentsArray {
+                        if equipment.id_obj == parking["IdObj"].stringValue {
+                            currentParking?.equipment = equipment
+                        }
+                    }
+                    
+                    guard let schedulesArray = Schedules.allSchedules(moc: tempMoc!) else { return }
+                    for schedules in schedulesArray {
+                        if schedules.id_obj == parking["IdObj"].stringValue {
+                            guard let day = schedules.day else { return }
+                            guard let currentSchedules = Schedules.schedulesForIdObjAndDay(idObject: parking["IdObj"].stringValue, day: day, moc: tempMoc!) else {
+                                currentParking?.addSchedulesObject(schedules)
+                                return
+                            }
+                            currentParking?.removeSchedulesObject(currentSchedules)
+                            currentParking?.addSchedulesObject(schedules)
+                        }
+                    }
                 }
                 
                 defer {
@@ -103,16 +124,18 @@ class StorageManager: NSObject {
     
     // MARK: - Schedules
     
-    public func persistSchedules(moc: NSManagedObjectContext) {
-        self.persistingSchedules(managedObjectContext: moc)
+    public func persistSchedules(moc: NSManagedObjectContext, callback: @escaping () -> Void) {
+        self.persistingSchedules(managedObjectContext: moc) { _ in
+            callback()
+        }
     }
     
-    private func persistingSchedules(managedObjectContext: NSManagedObjectContext) {
+    private func persistingSchedules(managedObjectContext: NSManagedObjectContext, callback: @escaping () -> Void) {
         let parkingsService = ParkingsService.sharedInstance
         let url = Constants.PARKING_SCHEDULES_URL_REQUEST
         
         if url != "" {
-            parkingsService.getJsonData(url: url, callback: { JsonParkingsData in
+            parkingsService.getJsonData(url: url, callback: { JsonSchedulesData in
                 
                 var tempMoc: NSManagedObjectContext?
                 do {
@@ -121,7 +144,7 @@ class StorageManager: NSObject {
                     print("Erreur tempMoc")
                 }
                 
-                guard let schedulesArray = JsonParkingsData["data"].array else {
+                guard let schedulesArray = JsonSchedulesData["data"].array else {
                     return
                 }
                 
@@ -146,6 +169,7 @@ class StorageManager: NSObject {
                     }
                 }
             })
+            callback()
         }
     }
     
@@ -176,11 +200,13 @@ class StorageManager: NSObject {
     
     // MARK: - Equipment
     
-    public func persistEquipment(moc: NSManagedObjectContext) -> Void {
-        self.persistingEquipment(managedObjectContext: moc)
+    public func persistEquipment(moc: NSManagedObjectContext, callback: @escaping () -> Void) -> Void {
+        self.persistingEquipment(managedObjectContext: moc) { _ in
+            callback()
+        }
     }
     
-    private func persistingEquipment(managedObjectContext: NSManagedObjectContext) -> Void {
+    private func persistingEquipment(managedObjectContext: NSManagedObjectContext, callback: @escaping () -> Void) -> Void {
         let parkingsService = ParkingsService.sharedInstance
         let url = Constants.PUBLIC_EQUIPMENTS_URL_REQUEST
         
@@ -200,10 +226,11 @@ class StorageManager: NSObject {
                 
                 for equipment in equipmentArray {
                     var currentEquipment = Equipment.equipmentForIdObj(idObject: equipment["_IDOBJ"].stringValue, moc: managedObjectContext)
-                    
+            
                     if currentEquipment == nil {
                         currentEquipment = Equipment(context: tempMoc!)
                     }
+        
                     currentEquipment?.address = equipment["ADRESSE"].stringValue
                     currentEquipment?.city = equipment["COMMUNE"].stringValue
                     currentEquipment?.id_obj = equipment["_IDOBJ"].stringValue
@@ -223,6 +250,7 @@ class StorageManager: NSObject {
                     }
                 }
             })
+            callback()
         }
     }
     

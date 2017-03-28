@@ -82,11 +82,21 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell: UITableViewCell?
+        var isOpen: Bool? = nil
         let parkingAtIndexPath = self.parkingAtIndexPath(indexPath: indexPath as NSIndexPath)
         let parkingCell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewInfos.CELL_IDENTIFIER) as! ParkingTableViewCell
         parkingCell.setImageStatusWith(availablePlaces: parkingAtIndexPath.available ?? "0", exploitationPlaces: parkingAtIndexPath.exploitation ?? "0")
         parkingCell.setNameLabelWith(name: parkingAtIndexPath.name ?? "No name")
         parkingCell.setAvailableLabelWith(availablePlaces: parkingAtIndexPath.available ?? "XX")
+        
+        guard let schedulesArray = parkingAtIndexPath.schedules.allObjects as? [Schedules], schedulesArray != [] else {
+            parkingCell.setOpenStatusLabelWith(isOpen: isOpen)
+            tableViewCell = parkingCell
+            return tableViewCell!
+        }
+        isOpen = SchedulesService.sharedInstance.parkingIsOpen(schedulesArray: schedulesArray, parkingStatus: parkingAtIndexPath.status ?? "0")
+        parkingCell.setOpenStatusLabelWith(isOpen: isOpen)
+        
         tableViewCell = parkingCell
         return tableViewCell!
     }
