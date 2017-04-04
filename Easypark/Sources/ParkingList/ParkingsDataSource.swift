@@ -11,18 +11,24 @@ import UIKit
 import CoreData
 import EasyparkModel
 
+protocol ParkingSelectAble {
+    func didSelectParking(parking: Parking)
+}
+
 class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
     // MARK: - Var & outlet
     
     private let tableView: UITableView
     
+    public var delegate: ParkingSelectAble?
     
     // MARK: - View
     
     internal init(tableView: UITableView) {
         self.tableView = tableView
         super.init()
+        self.tableView.delegate = self
     }
     
     func parkingAtIndexPath(indexPath: NSIndexPath) -> Parking {
@@ -99,6 +105,11 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
         
         tableViewCell = parkingCell
         return tableViewCell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.didSelectParking(parking: parkingAtIndexPath(indexPath: indexPath as NSIndexPath))
     }
     
     

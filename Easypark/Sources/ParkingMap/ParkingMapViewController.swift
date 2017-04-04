@@ -36,6 +36,15 @@ class ParkingMapViewController: UIViewController {
     }
     
     
+    // MARK: - TabBar
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        tabBarItem = UITabBarItem(title: Constants.TabBarInfos.ITEM_MAP_TITLE, image: Constants.Images.tabBarMapIcon, tag: 2)
+    }
+
+    
     // MARK: - location manager to authorize user location for Maps app
     
     func checkLocationAuthorizationStatus() {

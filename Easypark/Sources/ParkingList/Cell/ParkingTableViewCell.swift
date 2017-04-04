@@ -42,6 +42,9 @@ class ParkingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    // MARK: - Setter
+    
     internal func setImageStatusWith(availablePlaces: String, exploitationPlaces: String) {
         let currentPlaces = Int(availablePlaces) ?? 0
         let totalPlaces = Int(exploitationPlaces) ?? 0

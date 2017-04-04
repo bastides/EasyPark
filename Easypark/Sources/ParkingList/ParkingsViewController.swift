@@ -9,7 +9,7 @@
 import UIKit
 import EasyparkModel
 
-class ParkingsViewController: UIViewController {
+class ParkingsViewController: UIViewController, ParkingSelectAble {
 
     // MARK: - Var & outlet
     
@@ -32,16 +32,22 @@ class ParkingsViewController: UIViewController {
         self.refreshControl.attributedTitle = NSAttributedString(string: Constants.RefreshControlInfos.ATTRIBUTED_TITLE)
         self.refreshControl.addTarget(self, action: #selector(ParkingsViewController.handleRefresh), for: .valueChanged)
         
+        self.parkingsDataSource?.delegate = self
+        
         if #available(iOS 10.0, *) {
             self.parkingsTableView.refreshControl = self.refreshControl
         } else {
             self.parkingsTableView.addSubview(self.refreshControl)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    // MARK: - TabBar
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        tabBarItem = UITabBarItem(title: Constants.TabBarInfos.ITEM_LIST_TITLE, image: Constants.Images.tabBarListIcon, tag: 1)
     }
     
     
@@ -52,17 +58,22 @@ class ParkingsViewController: UIViewController {
             print("ManagedObjectContext instantiation failed in ContextManager")
             return
         }
-        StorageManager.sharedInstance.persistSchedules(moc: moc) { }
-        StorageManager.sharedInstance.persistParking(moc: moc)
+        StorageManager.sharedInstance.persistSchedules(moc: moc) { _ in }
+        StorageManager.sharedInstance.persistParking(moc: moc) { _ in }
         self.refreshControl.endRefreshing()
     }
+    
 
+    // MARK: - ParkingSelectAble
+    
+    func didSelectParking(parking: Parking) {
+        let parkingInfosViewController = ParkingInfosViewController(parking: parking)
+        self.navigationController?.pushViewController(parkingInfosViewController, animated: true)
+    }
 
     // MARK: - Navigation
 
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == Constants.TableViewInfos.SEGUE_IDENTIFIER {
-//            
-//        }
+//
 //    }
 }
