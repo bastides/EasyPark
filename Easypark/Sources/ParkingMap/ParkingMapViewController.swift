@@ -8,8 +8,9 @@
 
 import UIKit
 import MapKit
+import EasyparkModel
 
-class ParkingMapViewController: UIViewController {
+class ParkingMapViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Var & outlet
     
@@ -28,20 +29,12 @@ class ParkingMapViewController: UIViewController {
         self.parkingMapConfiguration?.loadData()
         mapView.delegate = self
         
+        self.title = Constants.MapViewInfos.TITLE
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
-    }
-    
-    
-    // MARK: - TabBar
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        tabBarItem = UITabBarItem(title: Constants.TabBarInfos.ITEM_MAP_TITLE, image: Constants.Images.tabBarMapIcon, tag: 2)
     }
 
     
@@ -53,6 +46,46 @@ class ParkingMapViewController: UIViewController {
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+    }
+    
+    
+    // MARK: - MKMapViewDelegate
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? ParkingAnnotation {
+            let identifier = "parkingPin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            }
+            view.pinTintColor = annotation.pinTintColor()
+            return view
+        }
+        return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let parkingAnnotation = view.annotation as! ParkingAnnotation
+        let parkingInfosViewController = ParkingInfosViewController(parking: parkingAnnotation.parking)
+        self.navigationController?.pushViewController(parkingInfosViewController, animated: true)
+    }
+    
+//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+//        let location = view.annotation as! ParkingAnnotation
+//        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+//        location.mapItem().openInMaps(launchOptions: launchOptions)
+//        
+//        print("coucou")
+//    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("didselect")
     }
     
     

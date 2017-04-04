@@ -34,19 +34,22 @@ struct Constants {
                                         ApiInfos.API_JSON_OUTPUT_FORMAT
     
     
+    // MARK: - Parking status
+    
+    struct ParkingStatus {
+        static let PARKING_OPEN     = "Open"
+        static let PARKING_CLOSED   = "Closed"
+    }
+    
+    
     // MARK: - TableView
     
     struct TableViewInfos {
         static let NIB_NAME         = "ParkingTableViewCell"
         static let CELL_IDENTIFIER  = "ParkingCell"
-        static let SEGUE_IDENTIFIER = "showParkingInfos"
+        static let TITLE            = "Parking list"
     }
-    
-    // MARK: - ParkingInfosView
-    
-    struct ParkingInfosView {
-        static let NIB_NAME = "ParkingInfosViewController"
-    }
+
     
     // MARK: - RefreshControl
     
@@ -55,46 +58,57 @@ struct Constants {
     }
     
     
-    // MARK: - Map
+    // MARK: - MapView
     
-    struct MapInfos {
-        static let regionRadius     = 1300
-        static let nantesLatutide   = 47.2172500
-        static let nantesLongitude  = -1.5533600
+    struct MapViewInfos {
+        static let REGION_RADIUS    = 1300
+        static let NANTES_LATITUDE  = 47.2172500
+        static let NANTES_LONGITUDE = -1.5533600
+        static let TITLE            = "Parking map"
     }
     
-    // MARK: - TabBar
     
-    struct TabBarInfos {
-        static let ITEM_LIST_TITLE  = "Parking list"
-        static let ITEM_MAP_TITLE   = "Parking map"
+    // MARK: - ParkingInfosView
+    
+    struct ParkingInfosView {
+        static let NAME_UNAVAILABLE             = "Name unavailable"
+        static let ADDRESS_UNAVAILABLE          = "Address unavailable"
+        static let POSTAL_CODE_UNAVAILABLE      = "Postal code unavailable"
+        static let CITY_UNAVAILABLE             = "City unavailable"
+        static let PHONE_NUMBER_UNAVAILABLE     = "Phone number unavailable"
+        static let WEBSITE_UNAVAILABLE          = "Website unavailable"
+        
+        static let DEFAULT_PHONE_NUMBER         = "02 40 41 90 00"
+        static let DEFAULT_WEBSITE              = "www.parkings-nantes.fr"
     }
     
     
     // MARK: - Images
     
     struct Images {
-        static let parkingEmpty         = UIImage(named: "parking-50")
-        static let parkingAlmostFull    = UIImage(named: "parking-50")
-        static let parkingFull          = UIImage(named: "parking-50")
-        static let tabBarListIcon       = UIImage(named: "list-icon")
-        static let tabBarMapIcon        = UIImage(named: "map-icon")
+        static let PARKING              = UIImage(named: "parking-50")
+        static let TAB_BAR_LIST_ICON    = UIImage(named: "list-icon")
+        static let TAB_BAR_MAP_ICON     = UIImage(named: "map-icon")
     }
     
     
     // MARK: - ColorPalette
     
     struct ColorPalette {
-        static let pinColorRed              = UIColor(red: 217.0/255.0, green: 95.0/255.0, blue: 74.0/255.0, alpha: 1.0)
-        static let pinColorOrange           = UIColor(red: 221.0/255.0, green: 157.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-        static let pinColorGreen            = UIColor(red: 104.0/255.0, green: 193.0/255.0, blue: 62.0/255.0, alpha: 1.0)
-        static let pinColorWhite            = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        static let PARKING_OPEN             = UIColor(red: 104.0/255.0, green: 193.0/255.0, blue: 62.0/255.0, alpha: 1.0)
+        static let PARKING_CLOSED           = UIColor(red: 217.0/255.0, green: 95.0/255.0, blue: 74.0/255.0, alpha: 1.0)
         
-        static let tabBarTintColor          = UIColor.white
-        static let tabBarItemSelected       = UIColor(red: 41.0/255.0, green: 54.0/255.0, blue: 85.0/255.0, alpha: 1.0)
-        static let tabBarItemDefault        = UIColor(red: 135.0/255.0, green: 138.0/255.0, blue: 140.0/255.0, alpha: 1.0)
+        static let PIN_RED                  = UIColor(red: 217.0/255.0, green: 95.0/255.0, blue: 74.0/255.0, alpha: 1.0)
+        static let PIN_GREEN                = UIColor(red: 104.0/255.0, green: 193.0/255.0, blue: 62.0/255.0, alpha: 1.0)
+        static let PIN_WHITE                = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         
-        static let navigationBarTintColor   = UIColor(red: 41.0/255.0, green: 54.0/255.0, blue: 85.0/255.0, alpha: 1.0)
-        static let navigationBarTitleColor  = UIColor.white
+        static let TAB_BAR_TINT             = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        static let TAB_BAR_ITEM_SELECTED    = UIColor(red: 41.0/255.0, green: 54.0/255.0, blue: 85.0/255.0, alpha: 1.0)
+        static let TAB_BAR_ITEM_DEFAULT     = UIColor(red: 135.0/255.0, green: 138.0/255.0, blue: 140.0/255.0, alpha: 1.0)
+        
+        static let NAVIGATION_BAR_TINT      = UIColor(red: 41.0/255.0, green: 54.0/255.0, blue: 85.0/255.0, alpha: 1.0)
+        static let NAVIGATION_BAR_TITLE     = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        
+        static let PARKING_NAME             = UIColor(red: 41.0/255.0, green: 54.0/255.0, blue: 85.0/255.0, alpha: 1.0)
     }
 }

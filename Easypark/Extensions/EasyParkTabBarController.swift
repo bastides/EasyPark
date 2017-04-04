@@ -17,12 +17,12 @@ class EasyParkTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tabBar.barTintColor = Constants.ColorPalette.tabBarTintColor
-        self.tabBar.tintColor = Constants.ColorPalette.tabBarItemSelected
+        self.tabBar.barTintColor = Constants.ColorPalette.TAB_BAR_TINT
+        self.tabBar.tintColor = Constants.ColorPalette.TAB_BAR_ITEM_SELECTED
         
         for item in self.tabBar.items! {
-            let unselctedItem = [NSForegroundColorAttributeName: Constants.ColorPalette.tabBarItemDefault]
-            let selectedItem = [NSForegroundColorAttributeName: Constants.ColorPalette.tabBarItemSelected]
+            let unselctedItem = [NSForegroundColorAttributeName: Constants.ColorPalette.TAB_BAR_ITEM_DEFAULT]
+            let selectedItem = [NSForegroundColorAttributeName: Constants.ColorPalette.TAB_BAR_ITEM_SELECTED]
             
             item.setTitleTextAttributes(unselctedItem, for: .normal)
             item.setTitleTextAttributes(selectedItem, for: .selected)

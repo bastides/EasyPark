@@ -34,20 +34,13 @@ class ParkingsViewController: UIViewController, ParkingSelectAble {
         
         self.parkingsDataSource?.delegate = self
         
+        self.title = Constants.TableViewInfos.TITLE
+        
         if #available(iOS 10.0, *) {
             self.parkingsTableView.refreshControl = self.refreshControl
         } else {
             self.parkingsTableView.addSubview(self.refreshControl)
         }
-    }
-    
-    
-    // MARK: - TabBar
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        tabBarItem = UITabBarItem(title: Constants.TabBarInfos.ITEM_LIST_TITLE, image: Constants.Images.tabBarListIcon, tag: 1)
     }
     
     

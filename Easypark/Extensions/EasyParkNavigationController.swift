@@ -13,9 +13,9 @@ class EasyParkNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationBar.barTintColor = Constants.ColorPalette.navigationBarTintColor
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.ColorPalette.navigationBarTitleColor]
-        self.navigationBar.tintColor = Constants.ColorPalette.navigationBarTitleColor
+        self.navigationBar.barTintColor = Constants.ColorPalette.NAVIGATION_BAR_TINT
+        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.ColorPalette.NAVIGATION_BAR_TITLE]
+        self.navigationBar.tintColor = Constants.ColorPalette.NAVIGATION_BAR_TITLE
     }
 
 }

@@ -23,10 +23,7 @@ class ParkingTableViewCell: UITableViewCell {
     @IBOutlet weak var openStatusLabel: UILabel!
     
     private let placeTitle = "Places"
-    
-    private let parkingOpen = "Open"
-    
-    private let parkingClosed = "Closed"
+
     
     // MARK: - View
     
@@ -45,24 +42,8 @@ class ParkingTableViewCell: UITableViewCell {
     
     // MARK: - Setter
     
-    internal func setImageStatusWith(availablePlaces: String, exploitationPlaces: String) {
-        let currentPlaces = Int(availablePlaces) ?? 0
-        let totalPlaces = Int(exploitationPlaces) ?? 0
-        var currentPlacesRate = 0
-        if currentPlaces != 0 {
-            currentPlacesRate = (currentPlaces * 100) / totalPlaces
-        }
-        
-        switch currentPlacesRate {
-        case 20...100:
-            self.imageStatus.image = Constants.Images.parkingEmpty
-        case 5..<20:
-            self.imageStatus.image = Constants.Images.parkingAlmostFull
-        case 0..<5:
-            self.imageStatus.image = Constants.Images.parkingFull
-        default:
-            break
-        }
+    internal func setImageStatusWith() {
+        self.imageStatus.image = Constants.Images.PARKING
     }
     
     internal func setNameLabelWith(name: String) {
@@ -76,11 +57,11 @@ class ParkingTableViewCell: UITableViewCell {
     internal func setOpenStatusLabelWith(isOpen: Bool?) {
         switch isOpen {
         case true?:
-            self.openStatusLabel.text = parkingOpen
-            self.openStatusLabel.textColor = Constants.ColorPalette.pinColorGreen
+            self.openStatusLabel.text = Constants.ParkingStatus.PARKING_OPEN
+            self.openStatusLabel.textColor = Constants.ColorPalette.PARKING_OPEN
         case false?:
-            self.openStatusLabel.text = parkingClosed
-            self.openStatusLabel.textColor = Constants.ColorPalette.pinColorRed
+            self.openStatusLabel.text = Constants.ParkingStatus.PARKING_CLOSED
+            self.openStatusLabel.textColor = Constants.ColorPalette.PARKING_CLOSED
         default:
             self.openStatusLabel.text = ""
         }

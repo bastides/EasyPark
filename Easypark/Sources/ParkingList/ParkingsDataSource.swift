@@ -91,7 +91,7 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
         var isOpen: Bool? = nil
         let parkingAtIndexPath = self.parkingAtIndexPath(indexPath: indexPath as NSIndexPath)
         let parkingCell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewInfos.CELL_IDENTIFIER) as! ParkingTableViewCell
-        parkingCell.setImageStatusWith(availablePlaces: parkingAtIndexPath.available ?? "0", exploitationPlaces: parkingAtIndexPath.exploitation ?? "0")
+        parkingCell.setImageStatusWith()
         parkingCell.setNameLabelWith(name: parkingAtIndexPath.name ?? "No name")
         parkingCell.setAvailableLabelWith(availablePlaces: parkingAtIndexPath.available ?? "XX")
         

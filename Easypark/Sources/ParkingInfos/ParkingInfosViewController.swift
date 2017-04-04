@@ -31,10 +31,6 @@ class ParkingInfosViewController: UIViewController {
     
     var isOpen: Bool? = nil
     
-    private let parkingOpen = "Open"
-    
-    private let parkingClosed = "Closed"
-    
     
     // MARK: - View life cycle
     
@@ -55,14 +51,28 @@ class ParkingInfosViewController: UIViewController {
                 setAllDefaultValue()
                 return
             }
-            self.setNameLabelWith(name: equipment.name ?? "Name unavailable")
-            self.setAddressLabelWith(address: equipment.address ?? "Address unavailable")
-            self.setPostalCodeWith(postalCode: equipment.postal_code ?? "Postal code unavailable")
-            self.setCityLabelWith(city: equipment.city ?? "City unavailable")
-            self.setPhoneNumberButtonTitleWith(phoneNumber: equipment.phone_number ?? "Phone number unavailable")
-            self.setWebButtonTitleWith(web: equipment.web ?? "Website unavailable")
+            self.setNameLabelWith(name: equipment.name ?? Constants.ParkingInfosView.NAME_UNAVAILABLE)
+            self.setAddressLabelWith(address: equipment.address ?? Constants.ParkingInfosView.ADDRESS_UNAVAILABLE)
+            self.setPostalCodeWith(postalCode: equipment.postal_code ?? Constants.ParkingInfosView.POSTAL_CODE_UNAVAILABLE)
+            self.setCityLabelWith(city: equipment.city ?? Constants.ParkingInfosView.CITY_UNAVAILABLE)
+            
+            if equipment.phone_number != "" {
+                self.setPhoneNumberButtonTitleWith(phoneNumber: equipment.phone_number ?? Constants.ParkingInfosView.PHONE_NUMBER_UNAVAILABLE)
+            } else {
+                self.setPhoneNumberButtonTitleWith(phoneNumber: Constants.ParkingInfosView.PHONE_NUMBER_UNAVAILABLE)
+                self.phoneNumberButton.isEnabled = false
+            }
+            
+            if equipment.web != "" {
+                self.setWebButtonTitleWith(web: equipment.web ?? Constants.ParkingInfosView.WEBSITE_UNAVAILABLE)
+            } else {
+                self.setWebButtonTitleWith(web: Constants.ParkingInfosView.WEBSITE_UNAVAILABLE)
+                self.webButton.isEnabled = false
+            }
+            
             guard let schedulesArray = parking?.schedules.allObjects as? [Schedules], schedulesArray != [] else {
                 self.setOpenStatusLabelWith(isOpen: isOpen)
+                self.webButton.isEnabled = false
                 return
             }
             isOpen = SchedulesService.sharedInstance.parkingIsOpen(schedulesArray: schedulesArray, parkingStatus: parking?.status ?? "0")
@@ -74,11 +84,11 @@ class ParkingInfosViewController: UIViewController {
     // MARK: - View
 
     @IBAction func pressPhoneNumberButton(_ sender: UIButton) {
-        self.callPhoneNumber(phoneNumber: sender.titleLabel?.text ?? "02 40 41 90 00")
+        self.callPhoneNumber(phoneNumber: sender.titleLabel?.text ?? Constants.ParkingInfosView.DEFAULT_PHONE_NUMBER)
     }
     
     @IBAction func pressWebButton(_ sender: UIButton) {
-        self.callWebsite(url: sender.titleLabel?.text ?? "www.parkings-nantes.fr")
+        self.callWebsite(url: sender.titleLabel?.text ?? Constants.ParkingInfosView.DEFAULT_WEBSITE)
     }
     
     private func callPhoneNumber(phoneNumber: String) {
@@ -99,7 +109,7 @@ class ParkingInfosViewController: UIViewController {
     
     internal func setNameLabelWith(name: String) {
         self.nameLabel.text = name
-        self.nameLabel.textColor = Constants.ColorPalette.navigationBarTintColor
+        self.nameLabel.textColor = Constants.ColorPalette.PARKING_NAME
     }
     
     internal func setAddressLabelWith(address: String) {
@@ -125,11 +135,11 @@ class ParkingInfosViewController: UIViewController {
     internal func setOpenStatusLabelWith(isOpen: Bool?) {
         switch isOpen {
         case true?:
-            self.openStatusLabel.text = parkingOpen
-            self.openStatusLabel.textColor = Constants.ColorPalette.pinColorGreen
+            self.openStatusLabel.text = Constants.ParkingStatus.PARKING_OPEN
+            self.openStatusLabel.textColor = Constants.ColorPalette.PARKING_OPEN
         case false?:
-            self.openStatusLabel.text = parkingClosed
-            self.openStatusLabel.textColor = Constants.ColorPalette.pinColorRed
+            self.openStatusLabel.text = Constants.ParkingStatus.PARKING_CLOSED
+            self.openStatusLabel.textColor = Constants.ColorPalette.PARKING_CLOSED
         default:
             self.openStatusLabel.text = ""
         }
@@ -137,13 +147,13 @@ class ParkingInfosViewController: UIViewController {
     
     internal func setAllDefaultValue() {
         self.setNameLabelWith(name: self.parking?.name ?? "")
-        self.setAddressLabelWith(address: "Address unavailable")
+        self.setAddressLabelWith(address: Constants.ParkingInfosView.ADDRESS_UNAVAILABLE)
         self.addressLabel.textColor = UIColor.gray
         self.setPostalCodeWith(postalCode: "")
         self.setCityLabelWith(city: "")
-        self.setPhoneNumberButtonTitleWith(phoneNumber: "Phone number unavailable")
+        self.setPhoneNumberButtonTitleWith(phoneNumber: Constants.ParkingInfosView.PHONE_NUMBER_UNAVAILABLE)
         self.phoneNumberButton.isEnabled = false
-        self.setWebButtonTitleWith(web: "Website unavailable")
+        self.setWebButtonTitleWith(web: Constants.ParkingInfosView.WEBSITE_UNAVAILABLE)
         self.webButton.isEnabled = false
         self.setOpenStatusLabelWith(isOpen: nil)
     }

@@ -20,7 +20,6 @@
 		562C14591E68557A00BA2AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562C14581E68557A00BA2AD7 /* Assets.xcassets */; };
 		56A733831E7BE148006E996F /* ParkingMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A733821E7BE148006E996F /* ParkingMapViewController.swift */; };
 		56A733861E7D9BCD006E996F /* ParkingAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A733851E7D9BCD006E996F /* ParkingAnnotation.swift */; };
-		56A733891E7DA149006E996F /* MapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A733881E7DA149006E996F /* MapExtensions.swift */; };
 		56A733931E800AE8006E996F /* ParkingMapConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A733921E800AE8006E996F /* ParkingMapConfiguration.swift */; };
 		56A85B1C1E82D1050014F724 /* SchedulesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A85B1B1E82D1050014F724 /* SchedulesService.swift */; };
 		56AC03911E6DB2960022128B /* EasyparkModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC03901E6DB2880022128B /* EasyparkModel.framework */; };
@@ -80,7 +79,6 @@
 		562C14581E68557A00BA2AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56A733821E7BE148006E996F /* ParkingMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingMapViewController.swift; sourceTree = "<group>"; };
 		56A733851E7D9BCD006E996F /* ParkingAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingAnnotation.swift; sourceTree = "<group>"; };
-		56A733881E7DA149006E996F /* MapExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapExtensions.swift; sourceTree = "<group>"; };
 		56A733921E800AE8006E996F /* ParkingMapConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingMapConfiguration.swift; sourceTree = "<group>"; };
 		56A85B1B1E82D1050014F724 /* SchedulesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesService.swift; sourceTree = "<group>"; };
 		56AC038B1E6DB2880022128B /* EasyparkModel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EasyparkModel.xcodeproj; path = EasyparkModel/EasyparkModel.xcodeproj; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 		56A733871E7DA0B2006E996F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				56A733881E7DA149006E996F /* MapExtensions.swift */,
 				56D701DD1E8B9612004DC865 /* EasyParkTabBarController.swift */,
 				56D701E21E8BDFFB004DC865 /* EasyParkNavigationController.swift */,
 			);
@@ -397,7 +394,6 @@
 				562862561E74928100814FC4 /* ParkingsDataSource.swift in Sources */,
 				56D701DE1E8B9612004DC865 /* EasyParkTabBarController.swift in Sources */,
 				56A85B1C1E82D1050014F724 /* SchedulesService.swift in Sources */,
-				56A733891E7DA149006E996F /* MapExtensions.swift in Sources */,
 				56D701E31E8BDFFB004DC865 /* EasyParkNavigationController.swift in Sources */,
 				56A733831E7BE148006E996F /* ParkingMapViewController.swift in Sources */,
 				56C1A5791E6A2C3400165825 /* ParkingsService.swift in Sources */,

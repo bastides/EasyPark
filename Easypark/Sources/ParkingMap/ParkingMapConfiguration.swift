@@ -16,7 +16,7 @@ class ParkingMapConfiguration: NSObject {
     
     private let mapView: MKMapView
     
-    let regionRadius = CLLocationDistance(Constants.MapInfos.regionRadius)
+    let regionRadius = CLLocationDistance(Constants.MapViewInfos.REGION_RADIUS)
     
     var parkingAnnotations = [ParkingAnnotation]()
     
@@ -29,7 +29,7 @@ class ParkingMapConfiguration: NSObject {
     // MARK: - Data Processing
     
     func loadData() {
-        let initialLocation = CLLocation(latitude: Constants.MapInfos.nantesLatutide, longitude: Constants.MapInfos.nantesLongitude)
+        let initialLocation = CLLocation(latitude: Constants.MapViewInfos.NANTES_LATITUDE, longitude: Constants.MapViewInfos.NANTES_LONGITUDE)
         centerMapOnLocation(initialLocation)
         
         initializationData()
@@ -41,8 +41,7 @@ class ParkingMapConfiguration: NSObject {
         guard let parkingArray = Parking.allParkings(moc: moc) else { return }
         for parking in parkingArray {
             if parking.equipment != nil {
-                guard let equipment = parking.equipment else { return }
-                guard let parkingAnnotation = ParkingAnnotation.fromEquipment(equipment: equipment) else { return }
+                guard let parkingAnnotation = ParkingAnnotation.fromParking(parking: parking) else { return }
                 parkingAnnotations.append(parkingAnnotation)
             }
         }
