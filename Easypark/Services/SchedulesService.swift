@@ -16,7 +16,6 @@ class SchedulesService: NSObject {
     func parkingIsOpen(schedulesArray: [Schedules], parkingStatus: String) -> Bool {
         var open = false
         let currentDay = self.getCurrentDay()
-        
         if schedulesArray.count > 1, parkingStatus == "5" {
             for schedules in schedulesArray {
                 if schedules.day == currentDay {
@@ -24,13 +23,11 @@ class SchedulesService: NSObject {
                 }
             }
         }
-        
         return open
     }
     
     private func getCurrentDay() -> String {
         let now = Date()
-        
         let date = DateFormatter()
         date.dateStyle = .full
         date.timeStyle = .none
@@ -45,7 +42,6 @@ class SchedulesService: NSObject {
     
     private func isOpen(startTime: String, endTime: String) -> Bool {
         let now = Date()
-        
         let date = DateFormatter()
         date.dateStyle = .full
         date.timeStyle = .short
@@ -76,7 +72,6 @@ class SchedulesService: NSObject {
             print("Error parsing string to date")
             return Date()
         }
-        
         return dateObj
     }
 

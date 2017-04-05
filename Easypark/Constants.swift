@@ -37,8 +37,8 @@ struct Constants {
     // MARK: - Parking status
     
     struct ParkingStatus {
-        static let PARKING_OPEN     = "Open"
-        static let PARKING_CLOSED   = "Closed"
+        static let PARKING_OPEN     = "Ouvert"
+        static let PARKING_CLOSED   = "Fermé"
     }
     
     
@@ -47,14 +47,14 @@ struct Constants {
     struct TableViewInfos {
         static let NIB_NAME         = "ParkingTableViewCell"
         static let CELL_IDENTIFIER  = "ParkingCell"
-        static let TITLE            = "Parking list"
+        static let TITLE            = "Liste des parkings"
     }
 
     
     // MARK: - RefreshControl
     
     struct RefreshControlInfos {
-        static let ATTRIBUTED_TITLE = "Fetching parkings data"
+        static let ATTRIBUTED_TITLE = "Récupération des données parking"
     }
     
     
@@ -64,19 +64,20 @@ struct Constants {
         static let REGION_RADIUS    = 1300
         static let NANTES_LATITUDE  = 47.2172500
         static let NANTES_LONGITUDE = -1.5533600
-        static let TITLE            = "Parking map"
+        static let TITLE            = "Carte des parkings"
+        static let PIN_IDENTIFIER   = "parkingPin"
     }
     
     
     // MARK: - ParkingInfosView
     
     struct ParkingInfosView {
-        static let NAME_UNAVAILABLE             = "Name unavailable"
-        static let ADDRESS_UNAVAILABLE          = "Address unavailable"
-        static let POSTAL_CODE_UNAVAILABLE      = "Postal code unavailable"
-        static let CITY_UNAVAILABLE             = "City unavailable"
-        static let PHONE_NUMBER_UNAVAILABLE     = "Phone number unavailable"
-        static let WEBSITE_UNAVAILABLE          = "Website unavailable"
+        static let NAME_UNAVAILABLE             = "Nom indisponible"
+        static let ADDRESS_UNAVAILABLE          = "Adresse indisponible"
+        static let POSTAL_CODE_UNAVAILABLE      = "Code postal indisponible"
+        static let CITY_UNAVAILABLE             = "Ville indisponible"
+        static let PHONE_NUMBER_UNAVAILABLE     = "Numéro de téléphone indisponible"
+        static let WEBSITE_UNAVAILABLE          = "Site web indisponible"
         
         static let DEFAULT_PHONE_NUMBER         = "02 40 41 90 00"
         static let DEFAULT_WEBSITE              = "www.parkings-nantes.fr"

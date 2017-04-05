@@ -96,7 +96,7 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
         parkingCell.setNameLabelWith(name: parkingAtIndexPath.name ?? "No name")
         parkingCell.setAvailableLabelWith(availablePlaces: parkingAtIndexPath.available ?? "XX")
         
-        guard let schedulesArray = parkingAtIndexPath.schedules.allObjects as? [Schedules], schedulesArray != [] else {
+        guard let schedulesArray = parkingAtIndexPath.schedules.allObjects as? [Schedules] else {
             parkingCell.setOpenStatusLabelWith(isOpen: isOpen)
             tableViewCell = parkingCell
             return tableViewCell!

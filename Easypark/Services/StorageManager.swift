@@ -97,39 +97,6 @@ class StorageManager: NSObject {
         }
     }
     
-//    public func fetchAllParkings(managedObjectContext: NSManagedObjectContext) -> [String] {
-//        return self.fetchingAllParkings(managedObjectContext: managedObjectContext)
-//    }
-//    
-//    private func fetchingAllParkings(managedObjectContext: NSManagedObjectContext) -> [String] {
-//        var allParkings = [String]()
-//        guard let parkingList = Parking.allParkings(moc: managedObjectContext) else {
-//            print("No parking")
-//            return allParkings
-//        }
-//        for parking in parkingList {
-//            allParkings.append(parking.name ?? "No name")
-//        }
-//        return allParkings
-//    }
-    
-    public func fetchAllParkingsIdObj(managedObjectContext: NSManagedObjectContext) -> [String] {
-        return self.fetchingAllParkingsIdObj(managedObjectContext: managedObjectContext)
-    }
-    
-    private func fetchingAllParkingsIdObj(managedObjectContext: NSManagedObjectContext) -> [String] {
-        var idObjArray = [String]()
-        guard let parkingsList = Parking.allParkings(moc: managedObjectContext) else {
-            print("No Parking")
-            return idObjArray
-        }
-        for parking in parkingsList {
-            idObjArray.append(parking.id_obj ?? "No IdObj")
-        }
-        
-        return idObjArray
-    }
-    
     
     // MARK: - Schedules
     
@@ -186,30 +153,6 @@ class StorageManager: NSObject {
             })
         }
     }
-    
-//    public func fetchAllSchedulesIdObj(managedObjectContext: NSManagedObjectContext) -> [String] {
-//        return self.fetchingAllSchedulesIdObj(managedObjectContext: managedObjectContext)
-//    }
-//    
-//    private func fetchingAllSchedulesIdObj(managedObjectContext: NSManagedObjectContext) -> [String] {
-//        var allSchedulesIdObjArray = [String]()
-//        var uniqueIdObjArray = [String]()
-//        guard let schedulesList = Schedules.allSchedules(moc: managedObjectContext) else {
-//            print("No Schedules")
-//            return uniqueIdObjArray
-//        }
-//        for schedules in schedulesList {
-//            allSchedulesIdObjArray.append(schedules.id_obj ?? "No IdObj")
-//        }
-//        
-//        for uniqueIdObj in allSchedulesIdObjArray {
-//            if uniqueIdObjArray.contains(uniqueIdObj) == false {
-//                uniqueIdObjArray.append(uniqueIdObj)
-//            }
-//        }
-//        
-//        return uniqueIdObjArray
-//    }
 
     
     // MARK: - Equipment
@@ -272,20 +215,4 @@ class StorageManager: NSObject {
             })
         }
     }
-    
-//    public func fetchAllEquipments(managedObjectContext: NSManagedObjectContext) -> [Double] {
-//        return self.fetchingAllAllEquipments(managedObjectContext: managedObjectContext)
-//    }
-//    
-//    private func fetchingAllAllEquipments(managedObjectContext: NSManagedObjectContext) -> [Double] {
-//        var allEquipments = [Double]()
-//        guard let equipmentList = Equipment.allEquipments(moc: managedObjectContext) else {
-//            print("No Equipment")
-//            return allEquipments
-//        }
-//        for equipment in equipmentList {
-//            allEquipments.append(equipment.latitude)
-//        }
-//        return allEquipments
-//    }
 }

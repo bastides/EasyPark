@@ -80,11 +80,11 @@
             </objects>
             <point key="canvasLocation" x="1950" y="868"/>
         </scene>
-        <!--List-->
+        <!--Liste des parkings-->
         <scene sceneID="3Rl-b9-nOV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="khK-8P-eD6" customClass="EasyParkNavigationController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="List" image="list-icon" selectedImage="list-icon" id="j0j-kL-Yzz"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Liste des parkings" image="list-icon" selectedImage="list-icon" id="j0j-kL-Yzz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SXF-uX-YDx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -118,11 +118,11 @@
             </objects>
             <point key="canvasLocation" x="72.799999999999997" y="106.59670164917542"/>
         </scene>
-        <!--Map-->
+        <!--Carte des parkings-->
         <scene sceneID="PRV-ks-4LB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NwZ-tL-1XE" customClass="EasyParkNavigationController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="Map" image="map-icon" selectedImage="map-icon" id="udx-4g-nZr"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Carte des parkings" image="map-icon" selectedImage="map-icon" id="udx-4g-nZr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="84R-zN-CVQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

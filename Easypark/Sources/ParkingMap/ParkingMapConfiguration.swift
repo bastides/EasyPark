@@ -39,7 +39,6 @@ class ParkingMapConfiguration: NSObject, MKMapViewDelegate {
     func loadData() {
         let initialLocation = CLLocation(latitude: Constants.MapViewInfos.NANTES_LATITUDE, longitude: Constants.MapViewInfos.NANTES_LONGITUDE)
         centerMapOnLocation(initialLocation)
-        
         initializationData()
         mapView.addAnnotations(parkingAnnotations)
     }
@@ -65,19 +64,20 @@ class ParkingMapConfiguration: NSObject, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? ParkingAnnotation {
-            let identifier = "parkingPin"
+            let identifier = Constants.MapViewInfos.PIN_IDENTIFIER
             var view: MKPinAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.isEnabled = true
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
             }
             view.pinTintColor = annotation.pinTintColor()
-            return view
+            return view 
         }
         return nil
     }
@@ -85,17 +85,5 @@ class ParkingMapConfiguration: NSObject, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let parkingAnnotation = view.annotation as! ParkingAnnotation
         self.pinDelegate?.didSelectParkingPin(parking: parkingAnnotation.parking)
-    }
-    
-//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        let location = view.annotation as! ParkingAnnotation
-//        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-//        location.mapItem().openInMaps(launchOptions: launchOptions)
-//
-//        print("coucou")
-//    }
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("didselect")
     }
 }
