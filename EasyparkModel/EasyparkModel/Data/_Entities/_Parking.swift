@@ -9,10 +9,16 @@ public enum ParkingAttributes: String {
     case exploitation = "exploitation"
     case full = "full"
     case horodatage = "horodatage"
+    case id_obj = "id_obj"
     case identifier = "identifier"
     case name = "name"
     case pri_aut = "pri_aut"
     case status = "status"
+}
+
+public enum ParkingRelationships: String {
+    case equipment = "equipment"
+    case schedules = "schedules"
 }
 
 open class _Parking: NSManagedObject {
@@ -62,6 +68,9 @@ open class _Parking: NSManagedObject {
     var horodatage: String?
 
     @NSManaged open
+    var id_obj: String?
+
+    @NSManaged open
     var identifier: String?
 
     @NSManaged open
@@ -75,31 +84,41 @@ open class _Parking: NSManagedObject {
 
     // MARK: - Relationships
 
-    public class func parkingForNameRequest(managedObjectContext: NSManagedObjectContext!, name: String) -> NSFetchRequest<NSFetchRequestResult> {
+    @NSManaged open
+    var equipment: Equipment?
+
+    @NSManaged open
+    var schedules: NSSet
+
+    open func schedulesSet() -> NSMutableSet {
+        return self.schedules.mutableCopy() as! NSMutableSet
+    }
+
+    public class func parkingForIdObjRequest(managedObjectContext: NSManagedObjectContext!, id_obj: String) -> NSFetchRequest<NSFetchRequestResult> {
 
         let model = managedObjectContext.persistentStoreCoordinator!.managedObjectModel
         let substitutionVariables:[String:AnyObject] = [
-        "name": name as AnyObject,
+        "id_obj": id_obj as AnyObject,
         ]
 
-        let fetchRequest = model.fetchRequestFromTemplate(withName: "parkingForName", substitutionVariables: substitutionVariables)!
+        let fetchRequest = model.fetchRequestFromTemplate(withName: "parkingForIdObj", substitutionVariables: substitutionVariables)!
 
         return fetchRequest
     }
 
-    class func fetchParkingForName(managedObjectContext: NSManagedObjectContext, name: String) -> [Any]? {
-        return self.fetchParkingForName(managedObjectContext: managedObjectContext, name: name, error: nil)
+    class func fetchParkingForIdObj(managedObjectContext: NSManagedObjectContext, id_obj: String) -> [Any]? {
+        return self.fetchParkingForIdObj(managedObjectContext: managedObjectContext, id_obj: id_obj, error: nil)
     }
 
-    class func fetchParkingForName(managedObjectContext: NSManagedObjectContext, name: String, error outError: NSErrorPointer) -> [Any]? {
+    class func fetchParkingForIdObj(managedObjectContext: NSManagedObjectContext, id_obj: String, error outError: NSErrorPointer) -> [Any]? {
         guard let psc = managedObjectContext.persistentStoreCoordinator else { return nil }
         let model = psc.managedObjectModel
         let substitutionVariables : [String : Any] = [
-            "name": name,
+            "id_obj": id_obj,
 ]
 
-        guard let fetchRequest = model.fetchRequestFromTemplate(withName: "parkingForName", substitutionVariables: substitutionVariables) else {
-        	assert(false, "Can't find fetch request named \"parkingForName\".")
+        guard let fetchRequest = model.fetchRequestFromTemplate(withName: "parkingForIdObj", substitutionVariables: substitutionVariables) else {
+        	assert(false, "Can't find fetch request named \"parkingForIdObj\".")
 		return nil
 	}
         var results = Array<Any>()
@@ -143,6 +162,34 @@ open class _Parking: NSManagedObject {
         }
 
         return results
+    }
+
+}
+
+extension _Parking {
+
+    open func addSchedules(_ objects: NSSet) {
+        let mutable = self.schedules.mutableCopy() as! NSMutableSet
+        mutable.union(objects as Set<NSObject>)
+        self.schedules = mutable.copy() as! NSSet
+    }
+
+    open func removeSchedules(_ objects: NSSet) {
+        let mutable = self.schedules.mutableCopy() as! NSMutableSet
+        mutable.minus(objects as Set<NSObject>)
+        self.schedules = mutable.copy() as! NSSet
+    }
+
+    open func addSchedulesObject(_ value: Schedules) {
+        let mutable = self.schedules.mutableCopy() as! NSMutableSet
+        mutable.add(value)
+        self.schedules = mutable.copy() as! NSSet
+    }
+
+    open func removeSchedulesObject(_ value: Schedules) {
+        let mutable = self.schedules.mutableCopy() as! NSMutableSet
+        mutable.remove(value)
+        self.schedules = mutable.copy() as! NSSet
     }
 
 }

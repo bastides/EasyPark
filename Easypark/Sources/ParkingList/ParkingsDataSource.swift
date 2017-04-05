@@ -84,6 +84,7 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
         let tableViewCell: UITableViewCell?
         let parkingAtIndexPath = self.parkingAtIndexPath(indexPath: indexPath as NSIndexPath)
         let parkingCell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewInfos.CELL_IDENTIFIER) as! ParkingTableViewCell
+        parkingCell.setImageStatusWith(availablePlaces: parkingAtIndexPath.available ?? "0", exploitationPlaces: parkingAtIndexPath.exploitation ?? "0")
         parkingCell.setNameLabelWith(name: parkingAtIndexPath.name ?? "No name")
         parkingCell.setAvailableLabelWith(availablePlaces: parkingAtIndexPath.available ?? "XX")
         tableViewCell = parkingCell
@@ -94,7 +95,7 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
+        return 55.0
     }
     
     

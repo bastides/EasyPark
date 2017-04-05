@@ -22,6 +22,10 @@
 
 /* Begin PBXBuildFile section */
 		567B8D1D1E6DB24B00E7A99D /* EasyparkModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 567B8D1B1E6DB24B00E7A99D /* EasyparkModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56A3316A1E79720F0079278A /* _Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A331691E79720F0079278A /* _Equipment.swift */; };
+		56A3316C1E79721D0079278A /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A3316B1E79721D0079278A /* Equipment.swift */; };
+		56A3316E1E7975BF0079278A /* _Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A3316D1E7975BF0079278A /* _Schedules.swift */; };
+		56A331701E7975C70079278A /* Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A3316F1E7975C70079278A /* Schedules.swift */; };
 		56AC03991E6DB2DD0022128B /* human.swift.motemplate in Resources */ = {isa = PBXBuildFile; fileRef = 56AC03961E6DB2DD0022128B /* human.swift.motemplate */; };
 		56AC039A1E6DB2DD0022128B /* machine.swift.motemplate in Resources */ = {isa = PBXBuildFile; fileRef = 56AC03971E6DB2DD0022128B /* machine.swift.motemplate */; };
 		56AC039B1E6DB2DD0022128B /* mogenerator in Resources */ = {isa = PBXBuildFile; fileRef = 56AC03981E6DB2DD0022128B /* mogenerator */; };
@@ -35,6 +39,10 @@
 		567B8D181E6DB24B00E7A99D /* EasyparkModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyparkModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		567B8D1B1E6DB24B00E7A99D /* EasyparkModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyparkModel.h; sourceTree = "<group>"; };
 		567B8D1C1E6DB24B00E7A99D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56A331691E79720F0079278A /* _Equipment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Equipment.swift; sourceTree = "<group>"; };
+		56A3316B1E79721D0079278A /* Equipment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		56A3316D1E7975BF0079278A /* _Schedules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Schedules.swift; sourceTree = "<group>"; };
+		56A3316F1E7975C70079278A /* Schedules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedules.swift; sourceTree = "<group>"; };
 		56AC03961E6DB2DD0022128B /* human.swift.motemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = human.swift.motemplate; sourceTree = "<group>"; };
 		56AC03971E6DB2DD0022128B /* machine.swift.motemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = machine.swift.motemplate; sourceTree = "<group>"; };
 		56AC03981E6DB2DD0022128B /* mogenerator */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mogenerator; sourceTree = "<group>"; };
@@ -106,6 +114,8 @@
 		56AC03A61E6DB5740022128B /* _Entities */ = {
 			isa = PBXGroup;
 			children = (
+				56A3316D1E7975BF0079278A /* _Schedules.swift */,
+				56A331691E79720F0079278A /* _Equipment.swift */,
 				56AC03A71E6DB5740022128B /* _Parking.swift */,
 			);
 			path = _Entities;
@@ -114,6 +124,8 @@
 		56AC03A81E6DB5740022128B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				56A3316F1E7975C70079278A /* Schedules.swift */,
+				56A3316B1E79721D0079278A /* Equipment.swift */,
 				56AC03A91E6DB5740022128B /* Parking.swift */,
 			);
 			path = Entities;
@@ -226,9 +238,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				56AC03AA1E6DB5740022128B /* _Parking.swift in Sources */,
+				56A3316A1E79720F0079278A /* _Equipment.swift in Sources */,
+				56A331701E7975C70079278A /* Schedules.swift in Sources */,
+				56A3316C1E79721D0079278A /* Equipment.swift in Sources */,
 				56AC03AB1E6DB5740022128B /* Parking.swift in Sources */,
 				56AC039E1E6DB3BB0022128B /* Easypark.xcdatamodeld in Sources */,
 				56AC03AD1E6DB5F80022128B /* CoreDataStack.swift in Sources */,
+				56A3316E1E7975BF0079278A /* _Schedules.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +432,7 @@
 				56AC03A21E6DB4BF0022128B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
