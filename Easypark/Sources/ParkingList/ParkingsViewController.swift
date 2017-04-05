@@ -32,7 +32,7 @@ class ParkingsViewController: UIViewController, ParkingSelectAble {
         self.refreshControl.attributedTitle = NSAttributedString(string: Constants.RefreshControlInfos.ATTRIBUTED_TITLE)
         self.refreshControl.addTarget(self, action: #selector(ParkingsViewController.handleRefresh), for: .valueChanged)
         
-        self.parkingsDataSource?.delegate = self
+        self.parkingsDataSource?.parkingDelegate = self
         
         self.title = Constants.TableViewInfos.TITLE
         
@@ -63,10 +63,4 @@ class ParkingsViewController: UIViewController, ParkingSelectAble {
         let parkingInfosViewController = ParkingInfosViewController(parking: parking)
         self.navigationController?.pushViewController(parkingInfosViewController, animated: true)
     }
-
-    // MARK: - Navigation
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//    }
 }

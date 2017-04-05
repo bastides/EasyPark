@@ -21,7 +21,8 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
     
     private let tableView: UITableView
     
-    public var delegate: ParkingSelectAble?
+    public var parkingDelegate: ParkingSelectAble?
+    
     
     // MARK: - View
     
@@ -109,7 +110,7 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.didSelectParking(parking: parkingAtIndexPath(indexPath: indexPath as NSIndexPath))
+        self.parkingDelegate?.didSelectParking(parking: parkingAtIndexPath(indexPath: indexPath as NSIndexPath))
     }
     
     
