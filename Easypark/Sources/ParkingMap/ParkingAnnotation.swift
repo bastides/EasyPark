@@ -13,13 +13,13 @@ import Contacts
 
 class ParkingAnnotation: NSObject, MKAnnotation {
 
-    let idObject: String
+    let parking: Parking
     let title: String?
-    let address: String
+    let address: String?
     let coordinate: CLLocationCoordinate2D
     
-    init(idObject: String, name: String, address: String, coordinate: CLLocationCoordinate2D) {
-        self.idObject = idObject
+    init(parking: Parking, name: String, address: String, coordinate: CLLocationCoordinate2D) {
+        self.parking = parking
         self.title = name
         self.address = address
         self.coordinate = coordinate
@@ -30,33 +30,26 @@ class ParkingAnnotation: NSObject, MKAnnotation {
         return address
     }
     
-    class func fromEquipment(equipment: Equipment) -> ParkingAnnotation? {
-        let idObject = equipment.id_obj ?? "No IdObject"
+    class func fromParking(parking: Parking) -> ParkingAnnotation? {
+        guard let equipment = parking.equipment else { return nil }
         let name = equipment.name ?? "No name"
         let address = equipment.address ?? "No address"
         let coordinate = CLLocationCoordinate2D(latitude: equipment.latitude, longitude: equipment.longitude)
 
-        return ParkingAnnotation(idObject: idObject, name: name, address: address, coordinate: coordinate)
+        return ParkingAnnotation(parking: parking, name: name, address: address, coordinate: coordinate)
     }
     
     func pinTintColor() -> UIColor  {
-        let parking = Parking.parkingForIdObj(idObject: self.idObject, moc: CoreDataStack.sharedInstance.managedObjectContext!)
-        let currentPlaces = Int(parking?.available ?? "0")
-        let totalPlaces = Int(parking?.exploitation ?? "0")
-        var currentPlacesRate = 0
-        if currentPlaces != 0 {
-            currentPlacesRate = (currentPlaces! * 100) / totalPlaces!
+        var isOpen: Bool?
+        guard let schedulesArray = self.parking.schedules.allObjects as? [Schedules] else {
+            return Constants.ColorPalette.PIN_WHITE
         }
-        
-        switch currentPlacesRate {
-        case 20...100:
-            return Constants.ColorPalette.pinColorGreen
-        case 5..<20:
-            return Constants.ColorPalette.pinColorOrange
-        case 0..<5:
-            return Constants.ColorPalette.pinColorRed
-        default:
-            return Constants.ColorPalette.pinColorWhite
+        isOpen = SchedulesService.sharedInstance.parkingIsOpen(schedulesArray: schedulesArray, parkingStatus: parking.status ?? "0")
+        switch isOpen {
+        case true?:
+            return Constants.ColorPalette.PIN_GREEN
+        case false?:
+            return Constants.ColorPalette.PIN_RED
         }
     }
     
@@ -65,7 +58,7 @@ class ParkingAnnotation: NSObject, MKAnnotation {
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
         
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = title
+        mapItem.name = self.title
         
         return mapItem
     }

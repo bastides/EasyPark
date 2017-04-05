@@ -9,7 +9,7 @@
 import UIKit
 import EasyparkModel
 
-class ParkingsViewController: UIViewController {
+class ParkingsViewController: UIViewController, ParkingSelectAble {
 
     // MARK: - Var & outlet
     
@@ -32,16 +32,15 @@ class ParkingsViewController: UIViewController {
         self.refreshControl.attributedTitle = NSAttributedString(string: Constants.RefreshControlInfos.ATTRIBUTED_TITLE)
         self.refreshControl.addTarget(self, action: #selector(ParkingsViewController.handleRefresh), for: .valueChanged)
         
+        self.parkingsDataSource?.parkingDelegate = self
+        
+        self.title = Constants.TableViewInfos.TITLE
+        
         if #available(iOS 10.0, *) {
             self.parkingsTableView.refreshControl = self.refreshControl
         } else {
             self.parkingsTableView.addSubview(self.refreshControl)
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -52,18 +51,16 @@ class ParkingsViewController: UIViewController {
             print("ManagedObjectContext instantiation failed in ContextManager")
             return
         }
-        StorageManager.sharedInstance.persistParking(moc: moc)
+        StorageManager.sharedInstance.persistSchedules(moc: moc) { _ in }
+        StorageManager.sharedInstance.persistParking(moc: moc) { _ in }
         self.refreshControl.endRefreshing()
     }
+    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - ParkingSelectAble
+    
+    func didSelectParking(parking: Parking) {
+        let parkingInfosViewController = ParkingInfosViewController(parking: parking)
+        self.navigationController?.pushViewController(parkingInfosViewController, animated: true)
     }
-    */
-
 }

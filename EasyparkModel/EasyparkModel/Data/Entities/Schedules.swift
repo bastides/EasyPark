@@ -14,6 +14,16 @@ open class Schedules: _Schedules {
         return currentSchedules
     }
     
+    public class func schedulesForIdObject(idObject: String, moc: NSManagedObjectContext) -> [Schedules]? {
+        var schedulesList: [Schedules]?
+        if let schedulesArray = Schedules.fetchSchedulesForIdObj(managedObjectContext: moc, id_obj: idObject) as NSArray? {
+            if schedulesArray.count > 0 {
+                schedulesList = schedulesArray as? [Schedules]
+            }
+        }
+        return schedulesList
+    }
+    
     public class func allSchedules(moc: NSManagedObjectContext) -> [Schedules]? {
         var schedulesList: [Schedules]?
         if let schedulesArray = Schedules.fetchAllSchedules(managedObjectContext: moc) as NSArray? {

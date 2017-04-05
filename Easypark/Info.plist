@@ -47,6 +47,6 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Hey ! I want to know where you are !</string>
+	<string>L&apos;application souhaite accéder à vos données de localisation</string>
 </dict>
 </plist>

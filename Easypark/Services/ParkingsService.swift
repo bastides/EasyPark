@@ -18,17 +18,21 @@ class ParkingsService: NSObject {
     
     // MARK: - Get parking data in JSON
     
-    func getJsonData(url: String, callback: @escaping (_ data: JSON) -> Void) {
-        self.gettingJsonData(url: url) { data in
-            callback(data)
+    func getJsonData(url: String, callback: @escaping (_ data: JSON, _ error: NSError?) -> Void) {
+        self.gettingJsonData(url: url) { (data, error) in
+            callback(data, error)
         }
     }
     
-    private func gettingJsonData(url: String, callback: @escaping (_ data: JSON) -> Void) {
+    private func gettingJsonData(url: String, callback: @escaping (_ data: JSON, _ error: NSError?) -> Void) {
         Alamofire.request(url, method: .get).responseJSON { response in
-            guard let responseValue = response.result.value else { return }
+            guard let responseValue = response.result.value else {
+                let errorJson = NSError(domain: "ParkingService", code: 1, userInfo: [NSLocalizedDescriptionKey: "No JSON for \(url)"])
+                callback(JSON.null, errorJson)
+                return
+            }
             let jsonParsed = JSON(responseValue)
-            callback(jsonParsed)
+            callback(jsonParsed, nil)
         }
     }
 }

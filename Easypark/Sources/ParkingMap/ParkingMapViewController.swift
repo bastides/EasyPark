@@ -8,8 +8,9 @@
 
 import UIKit
 import MapKit
+import EasyparkModel
 
-class ParkingMapViewController: UIViewController {
+class ParkingMapViewController: UIViewController, ParkingSelectAblePin {
     
     // MARK: - Var & outlet
     
@@ -26,35 +27,35 @@ class ParkingMapViewController: UIViewController {
         super.viewDidLoad()
         self.parkingMapConfiguration = ParkingMapConfiguration(mapView: self.mapView)
         self.parkingMapConfiguration?.loadData()
-        mapView.delegate = self
         
+        self.parkingMapConfiguration?.pinDelegate = self
+        
+        self.title = Constants.MapViewInfos.TITLE
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
     }
-    
+
     
     // MARK: - location manager to authorize user location for Maps app
     
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            mapView.showsUserLocation = true
+            self.mapView.showsUserLocation = true
         } else {
-            locationManager.requestWhenInUseAuthorization()
+            self.locationManager.requestWhenInUseAuthorization()
         }
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - ParkingSelectAblePin
     
+    func didSelectParkingPin(parking: Parking) {
+        let parkingInfosViewController = ParkingInfosViewController(parking: parking)
+        self.navigationController?.pushViewController(parkingInfosViewController, animated: true)
+    }
 }
+
+

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ZP-hV-Dr1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ZP-hV-Dr1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Parking list-->
+        <!--Parkings View Controller-->
         <scene sceneID="Wz2-6t-79J">
             <objects>
                 <viewController id="Glg-46-3tg" customClass="ParkingsViewController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,16 +38,16 @@
                             <constraint firstItem="rpP-8b-Qcy" firstAttribute="leading" secondItem="qa9-bW-fA2" secondAttribute="leading" id="sFb-hO-Sct"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Parking list" id="5SL-GL-FI3"/>
+                    <navigationItem key="navigationItem" id="5SL-GL-FI3"/>
                     <connections>
                         <outlet property="parkingsTableView" destination="rpP-8b-Qcy" id="9FR-ss-HBq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0XD-0W-glx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1951.2" y="107.49625187406298"/>
+            <point key="canvasLocation" x="1950" y="107"/>
         </scene>
-        <!--Map-->
+        <!--Parking Map View Controller-->
         <scene sceneID="kb0-th-3ol">
             <objects>
                 <viewController id="mbe-3T-bcT" customClass="ParkingMapViewController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,20 +71,20 @@
                             <constraint firstAttribute="trailing" secondItem="9rl-Po-kUQ" secondAttribute="trailing" id="xYx-Ej-hIy"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map-icon" selectedImage="map-icon" id="udx-4g-nZr"/>
+                    <navigationItem key="navigationItem" id="j7C-gb-Byo"/>
                     <connections>
                         <outlet property="mapView" destination="9rl-Po-kUQ" id="bzU-qR-DA4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bZ-3j-3IE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949.5999999999999" y="867.61619190404804"/>
+            <point key="canvasLocation" x="1950" y="868"/>
         </scene>
-        <!--List-->
+        <!--Liste des parkings-->
         <scene sceneID="3Rl-b9-nOV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="khK-8P-eD6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" image="list-icon" selectedImage="list-icon" id="j0j-kL-Yzz"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="khK-8P-eD6" customClass="EasyParkNavigationController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="Liste des parkings" image="list-icon" selectedImage="list-icon" id="j0j-kL-Yzz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SXF-uX-YDx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -97,25 +97,45 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiW-Xv-UOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="106.59670164917542"/>
+            <point key="canvasLocation" x="990" y="107"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Easy Park Tab Bar Controller-->
         <scene sceneID="0Vc-LZ-5kS">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7ZP-hV-Dr1" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7ZP-hV-Dr1" customClass="EasyParkTabBarController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="AXa-AT-vNn">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="khK-8P-eD6" kind="relationship" relationship="viewControllers" id="EuG-Z1-lwk"/>
-                        <segue destination="mbe-3T-bcT" kind="relationship" relationship="viewControllers" id="AgD-NP-pyd"/>
+                        <segue destination="NwZ-tL-1XE" kind="relationship" relationship="viewControllers" id="AgD-NP-pyd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muW-ro-VC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="72.799999999999997" y="106.59670164917542"/>
+        </scene>
+        <!--Carte des parkings-->
+        <scene sceneID="PRV-ks-4LB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NwZ-tL-1XE" customClass="EasyParkNavigationController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Carte des parkings" image="map-icon" selectedImage="map-icon" id="udx-4g-nZr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="84R-zN-CVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mbe-3T-bcT" kind="relationship" relationship="rootViewController" id="mfj-xg-vxy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xmR-dw-8Qf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="868"/>
         </scene>
     </scenes>
     <resources>

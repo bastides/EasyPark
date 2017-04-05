@@ -6,45 +6,49 @@
 //  Copyright © 2017 Sebastien Bastide. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import MapKit
 import EasyparkModel
 
-class ParkingMapConfiguration: NSObject {
+protocol ParkingSelectAblePin {
+    func didSelectParkingPin(parking: Parking)
+}
+
+class ParkingMapConfiguration: NSObject, MKMapViewDelegate {
 
     // MARK: - Var & outlet
     
     private let mapView: MKMapView
     
-    let regionRadius = CLLocationDistance(Constants.MapInfos.regionRadius)
+    private let regionRadius = CLLocationDistance(Constants.MapViewInfos.REGION_RADIUS)
     
-    var parkingAnnotations = [ParkingAnnotation]()
+    private var parkingAnnotations = [ParkingAnnotation]()
     
-    let parkingsIdObjectArray = StorageManager.sharedInstance.fetchAllParkingsIdObj(managedObjectContext: CoreDataStack.sharedInstance.managedObjectContext!)
+    public var pinDelegate: ParkingSelectAblePin?
     
     internal init(mapView: MKMapView) {
         self.mapView = mapView
         super.init()
+        self.mapView.delegate = self
     }
     
     
     // MARK: - Data Processing
     
     func loadData() {
-        let initialLocation = CLLocation(latitude: Constants.MapInfos.nantesLatutide, longitude: Constants.MapInfos.nantesLongitude)
+        let initialLocation = CLLocation(latitude: Constants.MapViewInfos.NANTES_LATITUDE, longitude: Constants.MapViewInfos.NANTES_LONGITUDE)
         centerMapOnLocation(initialLocation)
-        
         initializationData()
         mapView.addAnnotations(parkingAnnotations)
     }
-
+    
     func initializationData() {
-        for position in 0..<parkingsIdObjectArray.count {
-            let equipment = Equipment.equipmentForIdObj(idObject: parkingsIdObjectArray[position], moc: CoreDataStack.sharedInstance.managedObjectContext!)
-            if equipment != nil {
-                guard let parkingAnnotation = ParkingAnnotation.fromEquipment(equipment: equipment!) else {
-                    return
-                }
+        guard let moc = CoreDataStack.sharedInstance.managedObjectContext else { return }
+        guard let parkingArray = Parking.allParkings(moc: moc) else { return }
+        for parking in parkingArray {
+            if parking.equipment != nil {
+                guard let parkingAnnotation = ParkingAnnotation.fromParking(parking: parking) else { return }
                 parkingAnnotations.append(parkingAnnotation)
             }
         }
@@ -53,5 +57,33 @@ class ParkingMapConfiguration: NSObject {
     func centerMapOnLocation(_ location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    
+    // MARK: - MKMapViewDelegate
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? ParkingAnnotation {
+            let identifier = Constants.MapViewInfos.PIN_IDENTIFIER
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.isEnabled = true
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            }
+            view.pinTintColor = annotation.pinTintColor()
+            return view 
+        }
+        return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let parkingAnnotation = view.annotation as! ParkingAnnotation
+        self.pinDelegate?.didSelectParkingPin(parking: parkingAnnotation.parking)
     }
 }

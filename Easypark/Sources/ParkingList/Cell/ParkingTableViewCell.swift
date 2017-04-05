@@ -20,8 +20,10 @@ class ParkingTableViewCell: UITableViewCell {
     
     @IBOutlet var availablePlacesLabel: UILabel!
     
-    private let placeTitle = "Places"
+    @IBOutlet weak var openStatusLabel: UILabel!
     
+    private let placeTitle = "Places"
+
     
     // MARK: - View
     
@@ -37,24 +39,11 @@ class ParkingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    internal func setImageStatusWith(availablePlaces: String, exploitationPlaces: String) {
-        let currentPlaces = Int(availablePlaces) ?? 0
-        let totalPlaces = Int(exploitationPlaces) ?? 0
-        var currentPlacesRate = 0
-        if currentPlaces != 0 {
-            currentPlacesRate = (currentPlaces * 100) / totalPlaces
-        }
-        
-        switch currentPlacesRate {
-        case 20...100:
-            self.imageStatus.image = Constants.Images.parkingEmpty
-        case 5..<20:
-            self.imageStatus.image = Constants.Images.parkingAlmostFull
-        case 0..<5:
-            self.imageStatus.image = Constants.Images.parkingFull
-        default:
-            break
-        }
+    
+    // MARK: - Setter
+    
+    internal func setImageStatusWith() {
+        self.imageStatus.image = Constants.Images.PARKING
     }
     
     internal func setNameLabelWith(name: String) {
@@ -63,5 +52,18 @@ class ParkingTableViewCell: UITableViewCell {
     
     internal func setAvailableLabelWith(availablePlaces: String) {
         self.availablePlacesLabel.text = availablePlaces
+    }
+    
+    internal func setOpenStatusLabelWith(isOpen: Bool?) {
+        switch isOpen {
+        case true?:
+            self.openStatusLabel.text = Constants.ParkingStatus.PARKING_OPEN
+            self.openStatusLabel.textColor = Constants.ColorPalette.PARKING_OPEN
+        case false?:
+            self.openStatusLabel.text = Constants.ParkingStatus.PARKING_CLOSED
+            self.openStatusLabel.textColor = Constants.ColorPalette.PARKING_CLOSED
+        default:
+            self.openStatusLabel.text = ""
+        }
     }
 }
