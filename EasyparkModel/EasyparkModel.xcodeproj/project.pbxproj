@@ -28,7 +28,6 @@
 		56A331701E7975C70079278A /* Schedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A3316F1E7975C70079278A /* Schedules.swift */; };
 		56AC03991E6DB2DD0022128B /* human.swift.motemplate in Resources */ = {isa = PBXBuildFile; fileRef = 56AC03961E6DB2DD0022128B /* human.swift.motemplate */; };
 		56AC039A1E6DB2DD0022128B /* machine.swift.motemplate in Resources */ = {isa = PBXBuildFile; fileRef = 56AC03971E6DB2DD0022128B /* machine.swift.motemplate */; };
-		56AC039B1E6DB2DD0022128B /* mogenerator in Resources */ = {isa = PBXBuildFile; fileRef = 56AC03981E6DB2DD0022128B /* mogenerator */; };
 		56AC039E1E6DB3BB0022128B /* Easypark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56AC039C1E6DB3BB0022128B /* Easypark.xcdatamodeld */; };
 		56AC03AA1E6DB5740022128B /* _Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC03A71E6DB5740022128B /* _Parking.swift */; };
 		56AC03AB1E6DB5740022128B /* Parking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC03A91E6DB5740022128B /* Parking.swift */; };
@@ -209,7 +208,6 @@
 			files = (
 				56AC039A1E6DB2DD0022128B /* machine.swift.motemplate in Resources */,
 				56AC03991E6DB2DD0022128B /* human.swift.motemplate in Resources */,
-				56AC039B1E6DB2DD0022128B /* mogenerator in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
