@@ -79,7 +79,7 @@
 		562862551E74928100814FC4 /* ParkingsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingsDataSource.swift; sourceTree = "<group>"; };
 		562862571E7492D500814FC4 /* ParkingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkingTableViewCell.swift; sourceTree = "<group>"; };
 		562862581E7492D500814FC4 /* ParkingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkingTableViewCell.xib; sourceTree = "<group>"; };
-		562C143E1E6854A900BA2AD7 /* Easypark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Easypark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		562C143E1E6854A900BA2AD7 /* NantesPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NantesPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		562C14461E6854A900BA2AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		562C144B1E6854A900BA2AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		562C144D1E6854A900BA2AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		562C143F1E6854A900BA2AD7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				562C143E1E6854A900BA2AD7 /* Easypark.app */,
+				562C143E1E6854A900BA2AD7 /* NantesPark.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,9 +259,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		562C143D1E6854A900BA2AD7 /* Easypark */ = {
+		562C143D1E6854A900BA2AD7 /* NantesPark */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 562C14501E6854A900BA2AD7 /* Build configuration list for PBXNativeTarget "Easypark" */;
+			buildConfigurationList = 562C14501E6854A900BA2AD7 /* Build configuration list for PBXNativeTarget "NantesPark" */;
 			buildPhases = (
 				25E27F42279829E76329E868 /* [CP] Check Pods Manifest.lock */,
 				562C143A1E6854A900BA2AD7 /* Sources */,
@@ -277,9 +277,9 @@
 				56AC03941E6DB2960022128B /* PBXTargetDependency */,
 				5645FCB71E97A6230019061C /* PBXTargetDependency */,
 			);
-			name = Easypark;
+			name = NantesPark;
 			productName = Easypark;
-			productReference = 562C143E1E6854A900BA2AD7 /* Easypark.app */;
+			productReference = 562C143E1E6854A900BA2AD7 /* NantesPark.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -318,7 +318,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				562C143D1E6854A900BA2AD7 /* Easypark */,
+				562C143D1E6854A900BA2AD7 /* NantesPark */,
 			);
 		};
 /* End PBXProject section */
@@ -600,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		562C14501E6854A900BA2AD7 /* Build configuration list for PBXNativeTarget "Easypark" */ = {
+		562C14501E6854A900BA2AD7 /* Build configuration list for PBXNativeTarget "NantesPark" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				562C14511E6854A900BA2AD7 /* Debug */,
