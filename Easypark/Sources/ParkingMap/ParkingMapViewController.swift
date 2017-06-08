@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import EasyparkModel
 
-class ParkingMapViewController: UIViewController, ParkingSelectAblePin {
+class ParkingMapViewController: UIViewController {
     
     // MARK: - Var & outlet
     
@@ -27,10 +27,6 @@ class ParkingMapViewController: UIViewController, ParkingSelectAblePin {
         super.viewDidLoad()
         self.parkingMapConfiguration = ParkingMapConfiguration(mapView: self.mapView)
         self.parkingMapConfiguration?.loadData()
-        
-        self.parkingMapConfiguration?.pinDelegate = self
-        
-        self.title = Constants.MapViewInfos.TITLE
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,14 +44,4 @@ class ParkingMapViewController: UIViewController, ParkingSelectAblePin {
             self.locationManager.requestWhenInUseAuthorization()
         }
     }
-    
-    
-    // MARK: - ParkingSelectAblePin
-    
-    func didSelectParkingPin(parking: Parking) {
-        let parkingInfosViewController = ParkingInfosViewController(parking: parking)
-        self.navigationController?.pushViewController(parkingInfosViewController, animated: true)
-    }
 }
-
-

@@ -16,14 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        guard let moc = CoreDataStack.sharedInstance.managedObjectContext else {
-            print("ManagedObjectContext instantiation failed in ContextManager")
-            return true
-        }
-        
-        StorageManager.sharedInstance.persistSchedules(moc: moc) { _ in }
-        StorageManager.sharedInstance.persistEquipment(moc: moc) { _ in }
-        StorageManager.sharedInstance.persistParking(moc: moc) { _ in }
+        UITabBar.appearance().tintColor = Constants.ColorPalette.NAVIGATION_BAR_TINT
+        UINavigationBar.appearance().tintColor = Constants.ColorPalette.NAVIGATION_BAR_TITLE
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: Constants.ColorPalette.NAVIGATION_BAR_TITLE]
+        UINavigationBar.appearance().barTintColor = Constants.ColorPalette.NAVIGATION_BAR_TINT
         
         return true
     }

@@ -16,13 +16,13 @@ class StorageManager: NSObject {
     
     // MARK: - Parking
     
-    public func persistParking(moc: NSManagedObjectContext, completion: @escaping (_ error: NSError?) -> Void) {
-        self.persistingParking(managedObjectContext: moc) { error in
-            completion(error)
-        }
+    public func persistParking(moc: NSManagedObjectContext, onSuccess: @escaping () -> Void, onError: @escaping (_ error: NSError?) -> Void) {
+        self.persistingParking(managedObjectContext: moc, onSuccess: {
+            onSuccess()
+        }) { _ in }
     }
     
-    private func persistingParking(managedObjectContext: NSManagedObjectContext, completion: @escaping (_ error: NSError?) -> Void) {
+    private func persistingParking(managedObjectContext: NSManagedObjectContext, onSuccess: @escaping () -> Void, onError: @escaping (_ error: NSError?) -> Void) {
         let parkingsService = ParkingsService.sharedInstance
         let url = Constants.PARKING_URL_REQUEST
         
@@ -34,7 +34,7 @@ class StorageManager: NSObject {
                         tempMoc = try CoreDataStack.temporaryManagedObjectContextWithParent(moc: managedObjectContext)
                     } catch  {
                         let errorTempMoc = NSError(domain: "StorageManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "TempMoc error"])
-                        completion(errorTempMoc)
+                        onError(errorTempMoc)
                     }
                     
                     guard let groupesParkingDictionary = jsonParkingsData["opendata"]["answer"]["data"]["Groupes_Parking"].dictionary else {
@@ -85,14 +85,14 @@ class StorageManager: NSObject {
                         CoreDataStack.saveContext(managedObjectContext: tempMoc, error: &saveError)
                         if saveError == nil {
                             CoreDataStack.saveContext(managedObjectContext: managedObjectContext, error: &saveError)
-                            completion(saveError)
+                            onSuccess()
                         } else {
-                            completion(saveError)
+                            onError(saveError)
                         }
                     }
 
                 }
-                completion(error)
+                onError(error)
            })
         }
     }

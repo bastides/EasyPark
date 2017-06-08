@@ -83,7 +83,8 @@ class ParkingMapConfiguration: NSObject, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let parkingAnnotation = view.annotation as! ParkingAnnotation
-        self.pinDelegate?.didSelectParkingPin(parking: parkingAnnotation.parking)
+        let location = view.annotation as! ParkingAnnotation
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        location.mapItem().openInMaps(launchOptions: launchOptions)
     }
 }

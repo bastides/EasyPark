@@ -15,7 +15,7 @@ protocol ParkingSelectAble {
     func didSelectParking(parking: Parking)
 }
 
-class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class ParkingsDataSource: NSObject, NSFetchedResultsControllerDelegate {
 
     // MARK: - Var & outlet
     
@@ -74,14 +74,57 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
         
         return request as! NSFetchRequest<NSFetchRequestResult>
     }
+
     
+    // MARK: - FetchedResultsController Delegate
     
-    // MARK: - UITableViewDataSource
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .update:
+            if let indexPath = indexPath {
+                self.tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        case .insert:
+            self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            self.tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .move:
+            if let indexPath = indexPath {
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                self.tableView.insertRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            self.tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .automatic)
+        case .delete:
+            self.tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .automatic)
+        default:
+            break
+        }
+    }
+}
+
+
+// MARK: - UITableViewDataSource
+
+extension ParkingsDataSource: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
@@ -112,51 +155,14 @@ class ParkingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, 
         tableView.deselectRow(at: indexPath, animated: true)
         self.parkingDelegate?.didSelectParking(parking: parkingAtIndexPath(indexPath: indexPath as NSIndexPath))
     }
-    
-    
-    // MARK: - UITableViewDelegate
+}
+
+
+// MARK: - UITableViewDelegate
+
+extension ParkingsDataSource: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55.0
-    }
-    
-    
-    // MARK: - FetchedResultsController Delegate
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .update:
-            if let indexPath = indexPath {
-                tableView.reloadRows(at: [indexPath], with: .fade)
-            }
-        case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
-        case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
-        case .move:
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                tableView.insertRows(at: [indexPath], with: .fade)
-            }
-        }
-    }
-
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .automatic)
-        case .delete:
-            tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .automatic)
-        default:
-            break
-        }
     }
 }
