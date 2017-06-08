@@ -3,6 +3,6 @@ platform :ios, '10.0'
 use_frameworks!
 
 target ‘Easypark’ do
-    pod 'Alamofire', '~> 4.3ssssss’
+    pod 'Alamofire', '~> 4.3’
     pod 'SwiftyJSON'
 end

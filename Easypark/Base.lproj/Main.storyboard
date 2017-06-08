@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ZP-hV-Dr1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ZP-hV-Dr1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Parkings View Controller-->
+        <!--Liste des parkings-->
         <scene sceneID="Wz2-6t-79J">
             <objects>
-                <viewController id="Glg-46-3tg" customClass="ParkingsViewController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Glg-46-3tg" customClass="ParkingsViewController" customModule="NantesPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dj2-U9-p1Z"/>
                         <viewControllerLayoutGuide type="bottom" id="faQ-Bt-y9l"/>
@@ -29,28 +29,47 @@
                                     <outlet property="delegate" destination="Glg-46-3tg" id="XnF-EB-qq3"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJC-Jc-H82">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gYC-j1-4nc">
+                                        <rect key="frame" x="177" y="267" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="gYC-j1-4nc" firstAttribute="centerX" secondItem="RJC-Jc-H82" secondAttribute="centerX" id="qWq-iD-VFA"/>
+                                    <constraint firstItem="gYC-j1-4nc" firstAttribute="centerY" secondItem="RJC-Jc-H82" secondAttribute="centerY" id="qo7-ik-3Nt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="faQ-Bt-y9l" firstAttribute="top" secondItem="rpP-8b-Qcy" secondAttribute="bottom" id="23r-Gy-nf4"/>
                             <constraint firstItem="rpP-8b-Qcy" firstAttribute="top" secondItem="qa9-bW-fA2" secondAttribute="top" id="3na-4D-9Vb"/>
                             <constraint firstAttribute="trailing" secondItem="rpP-8b-Qcy" secondAttribute="trailing" id="4Ob-02-v09"/>
+                            <constraint firstItem="faQ-Bt-y9l" firstAttribute="top" secondItem="RJC-Jc-H82" secondAttribute="bottom" id="CbE-OY-gQy"/>
+                            <constraint firstItem="RJC-Jc-H82" firstAttribute="top" secondItem="dj2-U9-p1Z" secondAttribute="bottom" id="abi-Wa-Vcn"/>
+                            <constraint firstItem="RJC-Jc-H82" firstAttribute="leading" secondItem="qa9-bW-fA2" secondAttribute="leading" id="bP9-cz-fR1"/>
+                            <constraint firstAttribute="trailing" secondItem="RJC-Jc-H82" secondAttribute="trailing" id="cDt-Iq-QuB"/>
                             <constraint firstItem="rpP-8b-Qcy" firstAttribute="leading" secondItem="qa9-bW-fA2" secondAttribute="leading" id="sFb-hO-Sct"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5SL-GL-FI3"/>
+                    <navigationItem key="navigationItem" title="Liste des parkings" id="5SL-GL-FI3"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="gYC-j1-4nc" id="tTt-jm-Ifz"/>
                         <outlet property="parkingsTableView" destination="rpP-8b-Qcy" id="9FR-ss-HBq"/>
+                        <outlet property="waitingView" destination="RJC-Jc-H82" id="GCy-aY-poq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0XD-0W-glx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950" y="107"/>
+            <point key="canvasLocation" x="1949.5999999999999" y="106.59670164917542"/>
         </scene>
         <!--Parking Map View Controller-->
         <scene sceneID="kb0-th-3ol">
             <objects>
-                <viewController id="mbe-3T-bcT" customClass="ParkingMapViewController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mbe-3T-bcT" customClass="ParkingMapViewController" customModule="NantesPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zG2-Ig-oas"/>
                         <viewControllerLayoutGuide type="bottom" id="WrC-2F-4vt"/>
@@ -71,6 +90,9 @@
                             <constraint firstAttribute="trailing" secondItem="9rl-Po-kUQ" secondAttribute="trailing" id="xYx-Ej-hIy"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="Map" id="j8U-TZ-jGv">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="j7C-gb-Byo"/>
                     <connections>
                         <outlet property="mapView" destination="9rl-Po-kUQ" id="bzU-qR-DA4"/>
@@ -80,11 +102,13 @@
             </objects>
             <point key="canvasLocation" x="1950" y="868"/>
         </scene>
-        <!--Liste des parkings-->
+        <!--Navigation Controller-->
         <scene sceneID="3Rl-b9-nOV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="khK-8P-eD6" customClass="EasyParkNavigationController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Liste des parkings" image="list-icon" selectedImage="list-icon" id="j0j-kL-Yzz"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="khK-8P-eD6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="List" id="j0j-kL-Yzz">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SXF-uX-YDx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -99,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="990" y="107"/>
         </scene>
-        <!--Easy Park Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="0Vc-LZ-5kS">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7ZP-hV-Dr1" customClass="EasyParkTabBarController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7ZP-hV-Dr1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="AXa-AT-vNn">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -111,35 +135,16 @@
                     </tabBar>
                     <connections>
                         <segue destination="khK-8P-eD6" kind="relationship" relationship="viewControllers" id="EuG-Z1-lwk"/>
-                        <segue destination="NwZ-tL-1XE" kind="relationship" relationship="viewControllers" id="AgD-NP-pyd"/>
+                        <segue destination="mbe-3T-bcT" kind="relationship" relationship="viewControllers" id="LFf-gP-epc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muW-ro-VC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="72.799999999999997" y="106.59670164917542"/>
         </scene>
-        <!--Carte des parkings-->
-        <scene sceneID="PRV-ks-4LB">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NwZ-tL-1XE" customClass="EasyParkNavigationController" customModule="Easypark" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="Carte des parkings" image="map-icon" selectedImage="map-icon" id="udx-4g-nZr"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="84R-zN-CVQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="mbe-3T-bcT" kind="relationship" relationship="rootViewController" id="mfj-xg-vxy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xmR-dw-8Qf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="990" y="868"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="list-icon" width="30" height="30"/>
-        <image name="map-icon" width="30" height="30"/>
+        <image name="List" width="25" height="25"/>
+        <image name="Map" width="25" height="25"/>
     </resources>
 </document>

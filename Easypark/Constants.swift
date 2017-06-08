@@ -87,9 +87,7 @@ struct Constants {
     // MARK: - Images
     
     struct Images {
-        static let PARKING              = UIImage(named: "parking-50")
-        static let TAB_BAR_LIST_ICON    = UIImage(named: "list-icon")
-        static let TAB_BAR_MAP_ICON     = UIImage(named: "map-icon")
+        static let PARKING              = UIImage(named: "Parking-50")
     }
     
     
